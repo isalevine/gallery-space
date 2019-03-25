@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
 
 
-  # around_action :catch_not_found
+  around_action :catch_not_found
 
   private
 
@@ -58,10 +58,10 @@ class UsersController < ApplicationController
     params.require(:user).permit!
   end
 
-  # def catch_not_found
-  #   yield
-  # rescue ActiveRecord::RecordNotFound
-  #   redirect_to users_path, :flash => { :error => "Record not found." }
-  # end
+  def catch_not_found
+    yield
+  rescue ActiveRecord::RecordNotFound
+    redirect_to users_path, :flash => { :error => "Record not found." }
+  end
 
 end
