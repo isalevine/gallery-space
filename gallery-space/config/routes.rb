@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :galleries
+  resources :users
   resources :friends
   resources :settings
   resources :images
