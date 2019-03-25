@@ -2,18 +2,21 @@
 
 <div>
   <h2><%= @user.user_name %></h2>
-  Real Name: <%= @user.user_name %>
-  Location: <%= @user.location %>
-  Age: <%= @user.age %>
-  Blurb: <%= @user.blurb %>
-  <br><br>
+  Real Name: <%= @user.user_name %><br>
+  Location: <%= @user.location %><br>
+  Age: <%= @user.age %><br>
+  Blurb: <%= @user.blurb %><br>
+  <br>
+<div>
 
-  <% @user.galleries.each do |galley| %>
-    <p><%= link_to gallery.name, gallery_path(gallery) %></p>
+<div>
+  <h3>Galleries by <%= @user.user_name %></h3>
+  <% @user.galleries.each do |gallery| %>
+    <h4><%= link_to gallery.name, gallery_path(gallery) %></h4>
   <% end %>
 </div>
 
-
+<br>
 <br>
 <div>
   <p><%= link_to 'Create New Gallery', new_gallery_path(user_id: @user.id) %></p>
