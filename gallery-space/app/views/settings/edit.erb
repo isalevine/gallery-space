@@ -1,0 +1,12 @@
+<h1>Change settings</h1>
+<%=form_for(@setting) do |f|%>
+<%=f.label :theme_name%>
+<%=f.text_field :theme_name%>
+<%=f.label :background_color%>
+<%=f.text_field :background_color%>
+<%=f.label :font%>
+<%=f.text_field :font%>
+<%=f.label :audio%>
+<%=f.text_field :audio%>
+<%=f.submit%>
+<%end%>

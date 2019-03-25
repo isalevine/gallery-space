@@ -1,0 +1,39 @@
+<div><h1>New Gallery</h1></div>
+
+<div>
+  <% if @gallery.errors.any? %>
+    <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
+    <ul>
+    <% @gallery.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<!--
+need to add in @user.id for @gallery.user_id...
+add this inside squids to bottom of form:
+f.hidden_field(:user_id, :value => @user.id) %>
+(need to have the @user set up in Galleries#new method)
+...
+also, should we make the 'theme' field a drop-down of
+pre-set options PLUS the ability to make a new one??
+-->
+
+<div>
+  <%= form_for(@gallery) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br><br>
+    <%= f.label :theme %>
+    <%= f.text_field :theme %><br><br>
+    <%= f.label :blurb %>
+    <%= f.text_field :blurb %><br><br>
+    <%= f.submit %>
+  <% end  %>
+</div>
+
+<br>
+<div>
+  <p><%= link_to 'Gallery Index', galleries_path %></p>
+</div>

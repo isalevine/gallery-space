@@ -1,0 +1,12 @@
+<div><h1>Gallery Index</h1></div>
+
+<div>
+  <% @galleries.each do |gallery| %>
+    <h2><%= link_to gallery.name, gallery_path(gallery) %></h2>
+  <% end %>
+</div>
+
+<br><br>
+<div>
+  <h2><%= link_to 'Create New Gallery', new_gallery_path %></h2>
+</div>
