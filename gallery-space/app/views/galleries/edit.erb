@@ -1,0 +1,39 @@
+<div><h1>Edit Gallery</h1></div>
+
+<div>
+  <% if @gallery.errors.any? %>
+    <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
+    <ul>
+    <% @gallery.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div>
+  <%= form_for(@gallery) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br><br>
+    <%= f.label :theme %>
+    <%= f.text_field :theme %><br><br>
+    <%= f.label :blurb %>
+    <%= f.text_field :blurb %><br><br>
+    <%= f.submit %>
+  <% end  %>
+</div>
+
+<br>
+<div>
+  <p><%= link_to 'Delete Gallery', gallery_path, method: 'delete' %></p>
+</div>
+
+<br>
+<div>
+  <p><%= link_to 'Gallery Index', galleries_path %></p>
+</div>
+
+<br>
+<div>
+  <h2><%= link_to 'Back to User Index', users_path %></h2>
+</div>
