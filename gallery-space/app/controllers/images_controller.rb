@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     if @image.save
-      redirect_to image_path
+      redirect_to image_path(@image)
     else
       render :new
     end
@@ -34,9 +34,11 @@ class ImagesController < ApplicationController
   end
   end
 
-  # def destroy
-  #   @image.find(params[:id]).destroy
-  # end
+  def destroy
+    @image = Image.find(params[:id])
+    @image.destroy
+    redirect to user_deleted_path
+  end
 
   private
 

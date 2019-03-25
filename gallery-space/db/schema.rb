@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_164753) do
+ActiveRecord::Schema.define(version: 2019_03_25_184752) do
 
   create_table "friends", force: :cascade do |t|
     t.string "owner_user_id"
     t.string "target_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id"
+    t.string "theme"
+    t.string "blurb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +43,17 @@ ActiveRecord::Schema.define(version: 2019_03_25_164753) do
     t.string "background_color"
     t.string "font"
     t.string "audio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "setting_name"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+    t.string "real_name"
+    t.string "location"
+    t.integer "age"
+    t.string "blurb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
