@@ -1,0 +1,11 @@
+<h1>Create new image</h1>
+<%=form_for(@image) do |f|%>
+<%=f.label :title%>
+<%=f.text_field :title%>
+<%=f.label :artist%>
+<%=f.text_field :artist%>
+<%=f.label :medium%>
+<%=f.label :link%>
+<%=f.text_field :link%>
+<%=f.submit%>
+<%end%>
