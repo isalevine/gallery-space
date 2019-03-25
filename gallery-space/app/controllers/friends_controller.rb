@@ -34,9 +34,11 @@ end
   end
 end
 
-  # def destroy
-  #   @friend.find(params[:id]).destroy
-  # end
+def destroy
+  @friend = Friend.find(params[:id])
+  @friend.destroy
+  redirect to user_deleted_path
+end
 
   private
 

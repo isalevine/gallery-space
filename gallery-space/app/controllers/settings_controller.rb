@@ -34,9 +34,11 @@ class SettingsController < ApplicationController
   end
   end
 
-  # def destroy
-  #   @setting
-  # end
+  def destroy
+    @setting = Setting.find(params[:id])
+    @setting.destroy
+    redirect to user_deleted_path
+  end
 
   private
 
