@@ -1,12 +1,14 @@
 <h1>Create new image</h1>
 <%=form_for(@image) do |f|%>
-<%=f.label :title%><br>
-<%=f.text_field :title%><br>
-<%=f.label :artist%><br>
-<%=f.text_field :artist%><br>
-<%=f.label :medium%><br>
-<%=f.text_field :medium%><br>
-<%=f.label :link%><br>
-<%=f.text_field :link%><br>
-<%=f.submit%>
+  <%=f.label :image%><br>
+  <%=f.file_field :image%><br>
+  <%=f.label :title%><br>
+  <%=f.text_field :title%><br>
+  <%=f.label :artist%><br>
+  <%=f.text_field :artist%><br>
+  <%=f.label :medium%><br>
+  <%=f.text_field :medium%><br>
+  <%=f.label :link%><br>
+  <%=f.text_field :link%><br>
+  <%=f.submit%>
 <%end%>

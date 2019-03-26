@@ -64,11 +64,12 @@ class GalleriesController < ApplicationController
   # this method will be the SHOW FINAL GALLERY route,
   # separate from having the User view it for editing
     @gallery = Gallery.find(params[:id])
+    @settings = Setting.find(@gallery.current_setting_id)
   end
 
 
 
-  around_action :catch_not_found
+  # around_action :catch_not_found
 
   private
 
@@ -78,11 +79,11 @@ class GalleriesController < ApplicationController
     params.require(:gallery).permit!
   end
 
-  def catch_not_found
-    yield
-  rescue ActiveRecord::RecordNotFound
-    redirect_to galleries_path, :flash => { :error => "Record not found." }
-  end
+  # def catch_not_found
+  #   yield
+  # rescue ActiveRecord::RecordNotFound
+  #   redirect_to galleries_path, :flash => { :error => "Record not found." }
+  # end
 
 
 end
