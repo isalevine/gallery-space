@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @color = "green"
     @users = User.all
   end
 

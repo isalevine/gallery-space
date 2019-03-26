@@ -64,6 +64,10 @@ class GalleriesController < ApplicationController
   # this method will be the SHOW FINAL GALLERY route,
   # separate from having the User view it for editing
     @gallery = Gallery.find(params[:id])
+
+    # fix this to @gallery.settings.background_color
+    # once the Settings model is built out
+    @settings = Setting.new(background_color: "pink")
   end
 
 

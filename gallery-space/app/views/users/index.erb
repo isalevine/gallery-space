@@ -1,18 +1,26 @@
-<div><h1>User Index</h1></div>
-
-<div>
-  <% @users.each do |user| %>
-    <h2><%= link_to user.user_name, user_path(user) %></h2>
-  <% end %>
-</div>
-
-<br><br>
-<div>
-  <h2><%= link_to 'Create New User', new_user_path %></h2>
-</div>
+<!-- [SQUID] stylesheet_link_tag "/users/scss" %> -->
+<body style="background-color:<%= @color %>">
 
 
-<br><br>
-<div>
-  <h2><%= link_to 'Back to Main Page', root_path %></h2>
-</div>
+  <div>
+    <h1>User Index</h1>
+  </div>
+
+  <div>
+    <% @users.each do |user| %>
+      <h2><%= link_to user.user_name, user_path(user) %></h2>
+    <% end %>
+  </div>
+
+  <br><br>
+  <div>
+    <h2><%= link_to 'Create New User', new_user_path %></h2>
+  </div>
+
+
+  <br><br>
+  <div>
+    <h2><%= link_to 'Back to Main Page', root_path %></h2>
+  </div>
+
+</body>
