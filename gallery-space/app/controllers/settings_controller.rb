@@ -11,11 +11,12 @@ class SettingsController < ApplicationController
   def new
     @setting = Setting.new
     @background_colors = ['black', 'white', 'red', 'blue', 'green']
+    @font = ['Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Courier', 'Verdana']
   end
 
   def create
     @setting = Setting.new(setting_params)
-    byebug
+    # byebug
     if @setting.save
       redirect_to setting_path(@setting)
   else
@@ -25,6 +26,8 @@ class SettingsController < ApplicationController
 
   def edit
     @setting = Setting.find(params[:id])
+    @background_colors = ['black', 'white', 'red', 'blue', 'green']
+    @font = ['Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Courier', 'Verdana']
   end
 
   def update

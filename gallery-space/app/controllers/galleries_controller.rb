@@ -64,7 +64,9 @@ class GalleriesController < ApplicationController
   # this method will be the SHOW FINAL GALLERY route,
   # separate from having the User view it for editing
     @gallery = Gallery.find(params[:id])
+    @gallery.current_setting_id = 1
     @settings = Setting.find(@gallery.current_setting_id)
+
   end
 
 

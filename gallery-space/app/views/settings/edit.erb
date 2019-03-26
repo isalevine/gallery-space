@@ -3,9 +3,9 @@
 <%=f.label :theme_name%><br>
 <%=f.text_field :theme_name%><br>
 <%=f.label :background_color%><br>
-<%=f.text_field :background_color%><br>
+<%=f.collection_select :background_color, @background_colors, :itself, :itself%><br>
 <%=f.label :font%><br>
-<%=f.text_field :font%><br>
+<%=f.collection_select :font, @font, :itself, :itself%><br>
 <%=f.label :audio%><br>
 <%=f.text_field :audio%><br>
 <%=f.submit%>
