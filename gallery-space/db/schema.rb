@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_165104) do
+ActiveRecord::Schema.define(version: 2019_03_26_170312) do
 
   create_table "friends", force: :cascade do |t|
     t.string "owner_user_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_165104) do
     t.string "blurb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "current_setting_id"
   end
 
   create_table "images", force: :cascade do |t|
