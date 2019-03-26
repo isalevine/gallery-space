@@ -8,9 +8,6 @@ class GalleriesController < ApplicationController
     @gallery = Gallery.find(params[:id])
   end
 
-  # see FriendlyCharacterGenerator for if/else
-  # re: passing in a @user to the new @gallery object
-  # (reference the BaseCharacter#new controller/method)
   def new
     @gallery = Gallery.new
     if params[:user_id]
@@ -25,7 +22,7 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)
     if @gallery.save
-      redirect_to @gallery
+      redirect_to user_gallery_path(@gallery.user, @gallery.id)
     else
       flash[:error] = @gallery.errors.full_messages.to_sentence
       @user = User.find(gallery_params[:user_id])
@@ -40,7 +37,7 @@ class GalleriesController < ApplicationController
   def update
     @gallery = Gallery.find(params[:id])
     if @gallery.update(gallery_params)
-      redirect_to @gallery
+      redirect_to user_gallery_path(@gallery.user, @gallery.id)
     else
       flash[:error] = @gallery.errors.full_messages.to_sentence
       render :edit
@@ -55,6 +52,18 @@ class GalleriesController < ApplicationController
   end
 
   def gallery_deleted
+  end
+
+
+  def search_for_galleries
+  # this method will route to the Gallery Search page
+  end
+
+
+  def view_published_gallery
+  # this method will be the SHOW FINAL GALLERY route,
+  # separate from having the User view it for editing
+    @gallery = Gallery.find(params[:id])
   end
 
 

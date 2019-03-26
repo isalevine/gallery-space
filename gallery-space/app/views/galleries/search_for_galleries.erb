@@ -1,0 +1,20 @@
+<h1>Use this page to search for published galleries!</h1>
+
+<br>
+<div>
+  Search for galleries: ____________________
+</div>
+
+<br>
+<div>
+  <h2>All published galleries:</h2>
+  <% Gallery.all.each do |gallery| %>
+    <p><%= link_to "#{gallery.name} (created by #{gallery.user.user_name})", view_published_gallery_path(gallery) %></p>
+  <% end %>
+</div>
+
+
+<br><br>
+<div>
+  <h2><%= link_to 'Back to Main Page', root_path %></h2>
+</div>
