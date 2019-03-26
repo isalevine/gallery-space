@@ -16,6 +16,7 @@ class ImagesController < ApplicationController
     if @image.save
       redirect_to image_path(@image)
     else
+      # add flash error messages
       render :new
     end
   end
@@ -27,10 +28,11 @@ class ImagesController < ApplicationController
   def update
     @image = Image.find(params[:id])
     if @image.save
-    @image.update(image_params)
-    redirect_to image_path(@image)
-  else
-    render :new
+      @image.update(image_params)
+      redirect_to image_path(@image)
+    else
+      # add flash error messages
+      render :new
   end
   end
 

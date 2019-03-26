@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_170312) do
+ActiveRecord::Schema.define(version: 2019_03_26_202611) do
 
   create_table "friends", force: :cascade do |t|
     t.string "owner_user_id"
@@ -37,6 +37,11 @@ ActiveRecord::Schema.define(version: 2019_03_26_170312) do
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "settings", force: :cascade do |t|
