@@ -5,14 +5,17 @@ class SettingsController < ApplicationController
 
   def show
     @setting = Setting.find(params[:id])
+
   end
 
   def new
     @setting = Setting.new
+    @background_colors = ['black', 'white', 'red', 'blue', 'green']
   end
 
   def create
     @setting = Setting.new(setting_params)
+    byebug
     if @setting.save
       redirect_to setting_path(@setting)
   else
