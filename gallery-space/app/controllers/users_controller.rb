@@ -4,7 +4,13 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  # visitor show page
   def show
+    @user = User.find(params[:id])
+  end
+
+  # show your own profile, once logged in
+  def show_your_profile
     @user = User.find(params[:id])
   end
 

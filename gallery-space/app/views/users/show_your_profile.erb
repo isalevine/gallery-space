@@ -1,0 +1,33 @@
+<div><h1>User Show (Self - you are logged in)</h1></div>
+
+<div>
+  <h2><%= @user.user_name %></h2>
+  Real Name: <%= @user.user_name %><br>
+  Location: <%= @user.location %><br>
+  Age: <%= @user.age %><br>
+  Blurb: <%= @user.blurb %><br>
+  <br>
+<div>
+
+<div>
+  <h3>Edit your Galleries:</h3>
+  <% @user.galleries.each do |gallery| %>
+    <h4><%= link_to gallery.name, gallery_path(gallery) %> - view <%= link_to 'published version', view_published_gallery_path(gallery.id) %></h4>
+  <% end %>
+</div>
+
+<br>
+<br>
+<div>
+  <p><%= link_to 'Create New Gallery', new_user_gallery_path(user_id: @user.id) %></p>
+</div>
+
+<br>
+<div>
+  <p><%= link_to 'Edit User', edit_user_path(@user) %></p>
+</div>
+
+<br>
+<div>
+  <h3><%= link_to 'Back to User Index', users_path %></h3>
+</div>
