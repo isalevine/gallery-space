@@ -1,22 +1,31 @@
 <h1>Welcome to the GallerySpace main page!</h1>
 <br>
 <h2>You are logged in as <%= User.find(session[:user_id]).user_name %>.</h2>
-
-<!-- login -->
-<br><br>
 <div>
   <%= form_tag(logout_path) do %>
     <%= submit_tag "Logout" %>
   <% end %>
 </div>
 
+
 <br><br>
 <div>
-  <h2><%= link_to 'User Index', users_path %></h2>
+  <h2><%= link_to 'Create New Gallery', new_user_gallery_path(current_user) %></h2>
 </div>
 
+<br><br>
+<div>
+  <h2><%= link_to 'View/Edit your Profile and Galleries', show_your_profile_path(current_user) %></h2>
+</div>
 
 <br><br>
 <div>
   <h2><%= link_to 'Search and View Galleries', search_for_galleries_path %></h2>
+</div>
+
+
+<!-- deprecate and remove?! -->
+<br><br>
+<div>
+  <h2><%= link_to 'User Index', users_path %></h2>
 </div>

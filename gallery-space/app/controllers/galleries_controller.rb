@@ -1,4 +1,5 @@
 class GalleriesController < ApplicationController
+  skip_before_action :authenticate_user, only: [:index, :show, :search_for_galleries, :view_published_gallery]
 
   def index
     @galleries = Gallery.all

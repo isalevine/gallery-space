@@ -5,6 +5,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user, except: [:main_logged_in, :destroy_session_logout]
 
   def main
+    if session[:user_id]
+      redirect_to logged_in_path
+    end
   end
 
   def main_logged_in
