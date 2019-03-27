@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_03_26_202611) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "friends", force: :cascade do |t|
     t.string "owner_user_id"
     t.string "target_user_id"
@@ -37,7 +40,6 @@ ActiveRecord::Schema.define(version: 2019_03_26_202611) do
     t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"

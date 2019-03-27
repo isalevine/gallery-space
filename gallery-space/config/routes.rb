@@ -6,10 +6,11 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :galleries
+    resources :friends
   end
   get '/users/:id/profile', to: 'users#show_your_profile', as: 'show_your_profile'
 
-  resources :friends
+
   resources :settings
   resources :images
 
