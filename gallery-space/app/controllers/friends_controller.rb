@@ -5,12 +5,14 @@ class FriendsController < ApplicationController
 
   def show
     @friend = Friend.find(params[:id])
-    @user = User.find(@friend.owner_user_id)
+    # current_user is a helper method available in
+    # the view (no @user object needed)
     @user_friend = User.find(@friend.target_user_id)
   end
 
   def new
-    @user = User.find(params[:user_id])
+    # current_user is a helper method available in
+    # the view (no @user object needed)
     @friend = Friend.new
   end
 
@@ -23,18 +25,20 @@ class FriendsController < ApplicationController
     end
   end
 
-  def edit
-    @friend = Friend.find(params[:id])
-  end
+  # DO WE ONLY NEED CREATE/DESTROY functions for Friends???
 
-  def update
-    @friend = Friend.find(params[:id])
-    if @friend.update(friend_params)
-      redirect_to user_friend_path(friend_params[:owner_user_id], @friend)
-    else
-      render :new
-    end
-  end
+  # def edit
+  #   @friend = Friend.find(params[:id])
+  # end
+  #
+  # def update
+  #   @friend = Friend.find(params[:id])
+  #   if @friend.update(friend_params)
+  #     redirect_to user_friend_path(friend_params[:owner_user_id], @friend)
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def destroy
     @friend = Friend.find(params[:id])

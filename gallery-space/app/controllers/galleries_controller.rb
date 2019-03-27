@@ -11,11 +11,15 @@ class GalleriesController < ApplicationController
   def new
     @gallery = Gallery.new
     if params[:user_id]
-      @user = User.find(params[:user_id])
-    else
-      @user = User.new
-      name = "new_user_#{@user.id}"
-      @user.user_name = name
+      # current_user is a helper method available in
+      # the view (no @user object needed)
+
+    # is this Else option only for TESTING?? can we
+    # remove?? (only logged-in users should create Galleries...)
+    # else
+    #   @user = User.new
+    #   name = "new_user_#{@user.id}"
+    #   @user.user_name = name
     end
   end
 
@@ -25,7 +29,8 @@ class GalleriesController < ApplicationController
       redirect_to user_gallery_path(@gallery.user, @gallery.id)
     else
       flash[:error] = @gallery.errors.full_messages.to_sentence
-      @user = User.find(gallery_params[:user_id])
+      # current_user is a helper method available in
+      # the view (no @user object needed)
       render :new
     end
   end

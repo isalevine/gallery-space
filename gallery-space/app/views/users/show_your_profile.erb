@@ -1,17 +1,17 @@
 <div><h1>User Show (Self - you are logged in)</h1></div>
 
 <div>
-  <h2><%= @user.user_name %></h2>
-  Real Name: <%= @user.user_name %><br>
-  Location: <%= @user.location %><br>
-  Age: <%= @user.age %><br>
-  Blurb: <%= @user.blurb %><br>
+  <h2><%= current_user.user_name %></h2>
+  Real Name: <%= current_user.user_name %><br>
+  Location: <%= current_user.location %><br>
+  Age: <%= current_user.age %><br>
+  Blurb: <%= current_user.blurb %><br>
   <br>
 <div>
 
 <div>
   <h3>Edit your Galleries:</h3>
-  <% @user.galleries.each do |gallery| %>
+  <% current_user.galleries.each do |gallery| %>
     <h4><%= link_to gallery.name, gallery_path(gallery) %> - view <%= link_to 'published version', view_published_gallery_path(gallery.id) %></h4>
   <% end %>
 </div>
@@ -19,7 +19,7 @@
 <br>
 <div>
   <h3>Your Friends:</h3>
-  <% friends_array = Friend.where(owner_user_id: @user.id) %>
+  <% friends_array = Friend.where(owner_user_id: current_user.id) %>
   <% if friends_array.any? %>
     <% friends_array.each do |friend_join| %>
       <% user_friend = User.find(friend_join.target_user_id) %>
@@ -33,12 +33,12 @@
 <br>
 <br>
 <div>
-  <p><%= link_to 'Create New Gallery', new_user_gallery_path(user_id: @user.id) %></p>
+  <p><%= link_to 'Create New Gallery', new_user_gallery_path(user_id: current_user.id) %></p>
 </div>
 
 <br>
 <div>
-  <p><%= link_to 'Edit User', edit_user_path(@user) %></p>
+  <p><%= link_to 'Edit User', edit_user_path(current_user) %></p>
 </div>
 
 <br>

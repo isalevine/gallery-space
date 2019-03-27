@@ -31,4 +31,16 @@ class PagesController < ApplicationController
     redirect_to root_path
   end
 
+  # CODE BELOW DOES NOT CATCH ERRORS WHEN NAVIGATING
+  # TO URLS FROM THE ROOT DIRECTOR (i.e. 'localhost:3000/random')
+  # around_action :catch_not_found
+  #
+  # private
+  #
+  # def catch_not_found
+  #   yield
+  # rescue ActiveRecord::RecordNotFound
+  #   redirect_to galleries_path, :flash => { :error => "Record not found." }
+  # end
+
 end

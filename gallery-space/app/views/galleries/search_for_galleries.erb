@@ -2,11 +2,16 @@
 
 <br>
 <div>
-  Search for galleries: ____________________
+  <h2>Search for galleries:</h2>
+  <p>Search by user:</p> <!-- collection_select -->
+  <p>Search by theme:</p> <!-- collection_select -->
+  <p>Search by medium:</p> <!-- collection_select -->
+  <p>Search by gallery name:</p> <!-- collection_select -->
 </div>
 
 <br>
 <div>
+  <!-- need to add a Published field to Gallery model?? -->
   <h2>All published galleries:</h2>
   <% Gallery.all.each do |gallery| %>
     <p><%= link_to "#{gallery.name} (created by #{gallery.user.user_name})", view_published_gallery_path(gallery) %></p>

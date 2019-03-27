@@ -29,7 +29,7 @@ pre-set options PLUS the ability to make a new one??
     <%= f.text_field :theme %><br><br>
     <%= f.label :blurb %>
     <%= f.text_field :blurb %><br><br>
-    <%= f.hidden_field :user_id, :value => @user.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.submit %>
   <% end  %>
 </div>
