@@ -1,14 +1,13 @@
 <h1>Create new image</h1>
-<%=form_for(@image) do |f|%>
-  <%=f.label :image%><br>
-  <%=f.file_field :image%><br>
-  <%=f.label :title%><br>
-  <%=f.text_field :title%><br>
-  <%=f.label :artist%><br>
-  <%=f.text_field :artist%><br>
-  <%=f.label :medium%><br>
-  <%=f.text_field :medium%><br>
-  <%=f.label :link%><br>
-  <%=f.text_field :link%><br>
-  <%=f.submit%>
-<%end%>
+
+<%= form_tag(user_gallery_images_path(current_user, params[:gallery_id]), :multipart => true) do %>
+  <%= label_tag(:image)%>
+  <%= file_field_tag("image[image]") %><br>
+  <%= label_tag(:title)%>
+  <%= text_field_tag("image[title]") %><br>
+  <%= label_tag(:artist)%>
+  <%= text_field_tag("image[artist]") %><br>
+  <%= label_tag(:medium)%>
+  <%= text_field_tag("image[medium]") %><br>
+  <%= submit_tag %>
+<% end %>

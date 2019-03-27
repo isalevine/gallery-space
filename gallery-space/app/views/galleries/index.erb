@@ -6,7 +6,7 @@ LINK this index to Gallery/User show/edit view...
 
 <div>
   <% @galleries.each do |gallery| %>
-    <h2><%= link_to "#{gallery.name} (created by #{gallery.user.user_name})", gallery_path(gallery) %></h2>
+    <h2><%= link_to "#{gallery.name} (created by #{gallery.user.user_name})", user_gallery_path(gallery) %></h2>
   <% end %>
 </div>
 

@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
   def create
     @image = Image.new(image_params)
     if @image.save
-      redirect_to image_path(@image)
+      redirect_to user_gallery_images_path
     else
       # add flash error messages
       render :new
@@ -45,6 +45,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit!
+    params.require(:image).permit(:title, :artist, :medium, :image)
   end
 end

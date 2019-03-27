@@ -27,6 +27,7 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.new(gallery_params)
     if @gallery.save
+      flash[:message] = "New gallery created successfully!"
       redirect_to user_gallery_path(@gallery.user, @gallery.id)
     else
       flash[:error] = @gallery.errors.full_messages.to_sentence

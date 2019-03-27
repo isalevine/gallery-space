@@ -1,4 +1,10 @@
-<h1>See all images</h1>
-<%@images.each do |image|%>
-<%= image.title %>
-<%end%>
+<h1>See all images in this gallery:</h1>
+
+<% @images.each do |image| %>
+  <%= image_tag image.image.url %>
+<% end %>
+
+<br><br>
+<div>
+  <%= link_to "Back to Edit Gallery", user_gallery_path(current_user, params[:gallery_id]) %>
+</div>

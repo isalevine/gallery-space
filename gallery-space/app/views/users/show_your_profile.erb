@@ -16,7 +16,7 @@
 <div>
   <h3>Edit your Galleries:</h3>
   <% current_user.galleries.each do |gallery| %>
-    <h4><%= link_to gallery.name, gallery_path(gallery) %> - view <%= link_to 'published version', view_published_gallery_path(gallery.id) %></h4>
+    <h4><%= link_to gallery.name, user_gallery_path(gallery) %> - view <%= link_to 'published version', view_published_gallery_path(gallery.id) %></h4>
   <% end %>
 </div>
 

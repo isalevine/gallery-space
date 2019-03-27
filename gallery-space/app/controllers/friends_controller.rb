@@ -11,15 +11,6 @@ class FriendsController < ApplicationController
   end
 
   def new
-    # REFACTOR/DELETE if Add-To-Friends links are fixed
-    # when not logged in...
-    #
-    # if !User.exists?(session[:user_id])
-    #   session.clear
-    #   flash[:message] = "You are not logged in! Log in to add User to Friends."
-    #   redirect_to user_path
-    # end
-
     # check if Friend currently exists for logged-in User
     check_current_friends = Friend.where(owner_user_id: session[:user_id])
     already_friends = false

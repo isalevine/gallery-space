@@ -36,13 +36,13 @@
 
 
 <!-- need a button to "Add to Friends" IF you are logged in!! -->
-
-
 <br>
-<br>
-<div>
-  <h3><%= link_to 'Add User to Friends', new_user_friend_path(current_user, params[:id] = @user.id) %></h3>
-</div>
+<% if logged_in? %>
+  <br>
+  <div>
+    <h3><%= link_to 'Add User to Friends', new_user_friend_path(current_user, params[:id] = @user.id) %></h3>
+  </div>
+<% end %>
 
 <br>
 <div>

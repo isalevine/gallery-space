@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user, except: [:edit, :update, :destroy]
 
   def index
-    @users = User.order(:user_name)
+    @users = User.order("LOWER(users.user_name) ASC").references(:users)
   end
 
   # visitor show page

@@ -11,16 +11,17 @@
   <% end %>
 </div>
 
+
 <div>
-  <%= form_for(@gallery) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br><br>
-    <%= f.label :theme %>
-    <%= f.text_field :theme %><br><br>
-    <%= f.label :blurb %>
-    <%= f.text_field :blurb %><br><br>
-    <%= f.submit %>
-  <% end  %>
+  <%= form_tag(current_user, @gallery) do %>
+  <%= label_tag(:name)%>
+  <%= text_field_tag("gallery[name]") %><br>
+  <%= label_tag(:theme)%>
+  <%= text_field_tag("gallery[theme]") %><br>
+  <%= label_tag(:blurb)%>
+  <%= text_field_tag("gallery[blurb]") %><br>
+  <%= submit_tag %>
+  <% end %>
 </div>
 
 
@@ -32,7 +33,7 @@
 
 <br>
 <div>
-  <p><%= link_to 'Delete Gallery', gallery_path, method: 'delete' %></p>
+  <p><%= link_to 'Delete Gallery', user_gallery_path, method: 'delete' %></p>
 </div>
 
 <br>
