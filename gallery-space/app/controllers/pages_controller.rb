@@ -11,6 +11,14 @@ class PagesController < ApplicationController
   end
 
   def main_logged_in
+    # if User doesn't exist (ex. due to 'rake db:seed'),
+    # redirect to 'main page'
+    # ...could this be combined/refactored with the
+    # method below, 'destroy_session_logout'??
+    if !User.exists?(session[:user_id])
+      session.clear
+      redirect_to root_path
+    end
   end
 
   # UNNECESSARY? - main page IS the "new login" view!...???

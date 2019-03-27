@@ -1,5 +1,9 @@
 <div><h1>User Show (Self - you are logged in)</h1></div>
 
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+
 <div>
   <h2><%= current_user.user_name %></h2>
   Real Name: <%= current_user.user_name %><br>

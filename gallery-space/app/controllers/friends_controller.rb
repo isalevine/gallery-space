@@ -11,18 +11,35 @@ class FriendsController < ApplicationController
   end
 
   def new
-    # current_user is a helper method available in
-    # the view (no @user object needed)
-    @friend = Friend.new
+    # check if Friend currently exists for logged-in User
+    check_current_friends = Friend.where(owner_user_id: session[:user_id])
+    already_friends = false
+    check_current_friends.each do |friend|
+      if friend.target_user_id == params[:format]
+        already_friends = true
+      end
+    end
+
+    if already_friends
+      flash[:message] = "This User is already your Friend!"
+      redirect_to user_path(User.find(params[:format]))
+
+    # if no Friend match currently exists, create new one
+    else
+      @friend = Friend.new(owner_user_id: session[:user_id], target_user_id: params[:format])
+      if @friend.save
+        redirect_to new_friend_confirmation_path
+      else
+        flash[:message] = "Something went wrong with adding Friend."
+        redirect_to root_path
+      end
+    end
+
   end
 
-  def create
-    @friend = Friend.new(friend_params)
-    if @friend.save
-      redirect_to user_friend_path(friend_params[:owner_user_id], @friend)
-    else
-      render :new
-    end
+  def new_friend_confirmation
+    friend = Friend.where(owner_user_id: current_user.id).last
+    @target_user = User.find(friend.target_user_id)
   end
 
   # DO WE ONLY NEED CREATE/DESTROY functions for Friends???

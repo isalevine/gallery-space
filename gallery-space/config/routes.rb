@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :friends
   end
   get '/users/:id/profile', to: 'users#show_your_profile', as: 'show_your_profile'
-
+  get '/new_friend_confirmation', to: 'friends#new_friend_confirmation', as: 'new_friend_confirmation'
 
   resources :settings
   resources :images

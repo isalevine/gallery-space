@@ -1,10 +1,10 @@
-<div><h1>Edit User</h1></div>
+<div><h1>Edit User (Self - you are logged in)</h1></div>
 
 <div>
-  <% if @user.errors.any? %>
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <% if current_user.errors.any? %>
+    <h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
     <ul>
-    <% @user.errors.full_messages.each do |msg| %>
+    <% current_user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
@@ -12,7 +12,7 @@
 </div>
 
 <div>
-  <%= form_for(@user) do |f| %>
+  <%= form_for(current_user) do |f| %>
     <%= f.label :user_name %>
     <%= f.text_field :user_name %><br><br>
     <%= f.label :password %>
@@ -34,7 +34,7 @@
 
 <br>
 <div>
-  <p><%= link_to 'Add another User to your Friends', new_user_friend_path(@user.id) %></p>
+  <p><%= link_to 'Add another User to your Friends', new_user_friend_path(current_user.id) %></p>
 </div>
 
 <br>

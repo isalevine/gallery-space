@@ -2,12 +2,12 @@
 <body>
 
   <div>
-    <h1>User Index</h1>
+    <h1>Browse Users</h1>
   </div>
 
   <div>
     <% @users.each do |user| %>
-      <h2><%= link_to user.user_name, user_path(user) %></h2>
+      <h2><%= link_to user.user_name, show_your_profile_path(user) %></h2>
     <% end %>
   </div>
 

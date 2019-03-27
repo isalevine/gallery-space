@@ -1,0 +1,27 @@
+<h1><%= @target_user.user_name %> has been added to your Friends!</h1>
+
+
+<div>
+  <h2><%= link_to "Go to #{@target_user.user_name}\'s Profile", user_path(@target_user) %></h2>
+</div>
+
+
+<div>
+  <h2><%= link_to 'Go to your Profile', show_your_profile_path(current_user) %></h2>
+</div>
+
+<br><br>
+
+<div>
+  <h2><%= link_to 'Back to Browse Users', users_path %></h2>
+</div>
+
+
+<div>
+  <h2><%= link_to 'Back to Search & View Galleries', search_for_galleries_path %></h2>
+</div>
+
+
+<div>
+  <h2><%= link_to 'Back to Main Page', root_path %></h2>
+</div>

@@ -1,4 +1,8 @@
-<div><h1>User Show (Visitor - not logged in / other User)</h1></div>
+<div><h1>User Show (Visitor / Other User)</h1></div>
+
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
 
 <div>
   <h2><%= @user.user_name %></h2>
@@ -33,13 +37,13 @@
 
 <!-- need a button to "Add to Friends" IF you are logged in!! -->
 
-<!--
+
 <br>
 <br>
 <div>
-  <p>[SQUID] link_to 'Add User to Friends', _path(user_id: @user.id) %></p>
+  <p><%= link_to 'Add User to Friends', new_user_friend_path(current_user, params[:id] = @user.id) %></p>
 </div>
--->
+
 
 <br>
 <div>
