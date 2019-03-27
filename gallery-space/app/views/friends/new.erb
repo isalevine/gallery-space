@@ -1,7 +1,10 @@
 <h1>Create new friendship</h1>
-<%=form_for(@friend) do |f|%>
-<%=%>
-<%=%>
-<%=%>
-<%=f.submit%>
-<%end%>
+
+
+
+<%= form_tag("/users/:id/friends/", method: "post") do %>
+  <%= label_tag(:target_user_id, "Select target user:")%>
+  <%= collection_select(:friend, :target_user_id, User.all.order(:user_name), :id, :user_name) %>
+  <%= hidden_field_tag 'friend[owner_user_id]', @user.id %>
+  <%= submit_tag %>
+<% end %>

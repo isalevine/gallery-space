@@ -1,3 +1,7 @@
 <h1>See friendship</h1>
-<%=%>
-<%=%>
+
+<br>
+<font size="6"><%= @user.user_name %></font>  is friends with
+<font size="6"><%= @user_friend.user_name %>!</font>
+
+<%= link_to "Back to your Profile", show_your_profile_path(@user) %>

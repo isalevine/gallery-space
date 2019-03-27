@@ -17,6 +17,20 @@
 </div>
 
 <br>
+<div>
+  <h3>Your Friends:</h3>
+  <% friends_array = Friend.where(owner_user_id: @user.id) %>
+  <% if friends_array.any? %>
+    <% friends_array.each do |friend_join| %>
+      <% user_friend = User.find(friend_join.target_user_id) %>
+      <h4><%= link_to user_friend.user_name, user_path(user_friend) %></h4>
+    <% end %>
+  <% else %>
+    No friends yet!
+  <% end %>
+</div>
+
+<br>
 <br>
 <div>
   <p><%= link_to 'Create New Gallery', new_user_gallery_path(user_id: @user.id) %></p>

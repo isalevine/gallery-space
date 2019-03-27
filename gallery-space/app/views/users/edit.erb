@@ -29,6 +29,11 @@
 
 <br>
 <div>
+  <p><%= link_to 'Add another User to your Friends', new_user_friend_path(@user.id) %></p>
+</div>
+
+<br>
+<div>
   <p><%= link_to 'Delete User', user_path, method: 'delete' %></p>
 </div>
 

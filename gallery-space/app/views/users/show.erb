@@ -16,6 +16,23 @@
   <% end %>
 </div>
 
+<br>
+<div>
+  <h3><%= @user.user_name %>'s Friends:</h3>
+  <% friends_array = Friend.where(owner_user_id: @user.id) %>
+  <% if friends_array.any? %>
+    <% friends_array.each do |friend_join| %>
+      <% user_friend = User.find(friend_join.target_user_id) %>
+      <h4><%= link_to user_friend.user_name, user_path(user_friend) %></h4>
+    <% end %>
+  <% else %>
+    No friends yet!
+  <% end %>
+</div>
+
+
+<!-- need a button to "Add to Friends" IF you are logged in!! -->
+
 <!--
 <br>
 <br>
