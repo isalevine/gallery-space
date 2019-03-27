@@ -23,6 +23,12 @@
   <% end  %>
 </div>
 
+<h3>Choose Gallery Settings</h3>
+<%=form_for(@gallery) do |f|%>
+<%=f.label :theme_name%>
+<%=f.collection_select :current_setting_id, Setting.all, :id, :theme_name%>
+<%=f.submit%>
+<%end%>
 
 
 <br>
