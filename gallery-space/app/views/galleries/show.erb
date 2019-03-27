@@ -22,6 +22,8 @@ a separate page so that the images/gallery are isolated??
 <%=f.submit%>
 <%end%>
 
+<%=link_to 'View Published Gallery', view_published_gallery_path(@gallery)%>
+
 <br>
 <div>
   <p><%= link_to 'Edit Gallery', edit_gallery_path(@gallery) %></p>

@@ -1,4 +1,8 @@
 <h1>See all settings</h1>
+<ul>
 <%@settings.each do |setting|%>
-<%= setting %>
+<li><%= setting.theme_name %></li>
 <%end%>
+</ul>
+
+<%=link_to 'add more settings', new_setting_path%>
