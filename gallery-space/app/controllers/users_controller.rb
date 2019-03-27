@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user, except: [:edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.order(:user_name)
   end
 
   # visitor show page
@@ -52,6 +52,11 @@ class UsersController < ApplicationController
   # def user_deleted
   #   (see FriendlyCharacterGenerator code)
   # end
+
+
+  def seed_create=(user_params)
+    @user = User.create(user_params)
+  end
 
 
 

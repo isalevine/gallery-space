@@ -10,7 +10,8 @@ User.all.destroy_all
 Gallery.all.destroy_all
 Setting.all.destroy_all
 
-user1 = User.create(user_name: "Mantis Toboggan")
+user1 = User.create(user_name: "Mantis Toboggan", password: "dr")
+user2 = User.create(user_name: "ooga booga1", password: "big")
 
 settings1 = Setting.create(theme_name: "test", background_color: "pink")
 

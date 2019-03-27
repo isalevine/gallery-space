@@ -5,6 +5,12 @@
     <h1>Browse Users</h1>
   </div>
 
+  <% if User.exists?(session[:user_id])%>
+    <h3>You are logged in as <%= current_user.user_name %>.</h3>
+  <% end %>
+
+  <br>
+  <h2>All Users:</h2>
   <div>
     <% @users.each do |user| %>
       <h2><%= link_to user.user_name, show_your_profile_path(user) %></h2>

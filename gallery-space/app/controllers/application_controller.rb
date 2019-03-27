@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user
 
   def current_user
-    User.find(session[:user_id])
+    if !User.exists?(session[:user_id])
+      session.clear
+    else
+      User.find(session[:user_id])
+    end
   end
 
   def logged_in?
