@@ -6,7 +6,8 @@
 <%=f.collection_select :background_color, @background_colors, :itself, :itself%><br>
 <%=f.label :font%><br>
 <%=f.collection_select :font, @font, :itself, :itself%><br>
-<%=f.label :audio%><br>
-<%=f.text_field :audio%><br>
+<%=f.label :youtube_URL_snippet%><br>
+(EXAMPLE: https://www.youtube.com/watch?v=<i><b>VB6SIKl8Md0</b></i>)<br>
+<%=f.text_field :youtube_URL_snippet%><br>
 <%=f.submit%>
 <%end%>
