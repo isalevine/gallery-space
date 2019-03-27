@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'pages#main'
 
+  post '/login', to: 'pages#create_session_login'
+  get '/logged_in/', to: 'pages#main_logged_in'
+  post '/logout', to: 'pages#destroy_session_logout'
+
   resources :galleries
     get '/galleries/:id/gallery_deleted', to: 'galleries#gallery_deleted', as: 'gallery_deleted'
 

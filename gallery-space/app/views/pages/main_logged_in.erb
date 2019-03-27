@@ -1,18 +1,12 @@
 <h1>Welcome to the GallerySpace main page!</h1>
-
-<% if flash[:message] %>
-  <%= flash[:message] %>
-<% end %>
+<br>
+<h2>You are logged in as <%= User.find(session[:user_id]).user_name %>.</h2>
 
 <!-- login -->
 <br><br>
 <div>
-  <%= form_tag(login_path) do %>
-    <%= label_tag :user_name %>
-    <%= text_field_tag :user_name %><br>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %><br>
-    <%= submit_tag "Login" %>
+  <%= form_tag(logout_path) do %>
+    <%= submit_tag "Logout" %>
   <% end %>
 </div>
 

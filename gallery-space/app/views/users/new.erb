@@ -15,6 +15,11 @@
   <%= form_for(@user) do |f| %>
     <%= f.label :user_name %>
     <%= f.text_field :user_name %><br><br>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br><br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %><br><br>
+    <h4>Optional Data:</h4>
     <%= f.label :real_name %>
     <%= f.text_field :real_name %><br><br>
     <%= f.label :location %>
