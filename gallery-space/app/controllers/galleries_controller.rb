@@ -28,6 +28,7 @@ class GalleriesController < ApplicationController
     @gallery = Gallery.new(gallery_params)
     if @gallery.valid?
       default_setting = Setting.create(gallery_id: @gallery.id, theme_name: "default", background_color: "white", font: "Times New Roman", audio: "")
+      byebug
       @gallery.current_setting_id = default_setting.id
       @gallery.save
       flash[:message] = "New gallery created successfully!"
@@ -75,7 +76,6 @@ class GalleriesController < ApplicationController
   # this method will be the SHOW FINAL GALLERY route,
   # separate from having the User view it for editing
     @gallery = Gallery.find(params[:id])
-    # @gallery.current_setting_id = 1
     @settings = Setting.find(@gallery.current_setting_id)
 
   end
