@@ -1,13 +1,15 @@
 <h1>Change settings</h1>
-<%=form_for(@setting) do |f|%>
-<%=f.label :theme_name%><br>
-<%=f.text_field :theme_name%><br>
-<%=f.label :background_color%><br>
-<%=f.collection_select :background_color, @background_colors, :itself, :itself%><br>
-<%=f.label :font%><br>
-<%=f.collection_select :font, @font, :itself, :itself%><br>
-<%=f.label :audio%><br>
-(EXAMPLE: https://www.youtube.com/watch?v=<i><b>VB6SIKl8Md0</b></i>)<br>
-<%=f.text_field :audio%><br>
-<%=f.submit%>
-<%end%>
+
+<%= form_tag(user_gallery_setting_path(current_user.id, params[:gallery_id], @setting), :method => :patch) do %>
+  <%= label_tag :theme_name %>
+  <%= text_field_tag "setting[theme_name]", @setting.theme_name %><br>
+  <%= label_tag :background_color %>
+  <%= text_field_tag "setting[background_color]", @setting.background_color %><br>
+  <%= label_tag :font %>
+  <%= text_field_tag "setting[font]", @setting.font %><br>
+  <br>
+  <%= label_tag :audio %> - Please enter the section of a Youtube URL after "/watch?v="
+  <br>(EXAMPLE: https://www.youtube.com/watch?v=<i><b>VB6SIKl8Md0</b></i>)<br>
+  <%= text_field_tag "setting[audio]", @setting.audio %><br>
+  <%= submit_tag %>
+<% end %>

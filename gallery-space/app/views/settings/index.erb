@@ -2,3 +2,8 @@
 <%@settings.each do |setting|%>
 <%= link_to setting.theme_name, edit_user_gallery_setting_path(current_user.id, params[:gallery_id], setting.id) %><br>
 <%end%>
+
+<br>
+<div>
+  <h3><%= link_to 'Create new Custom Settings', new_user_gallery_setting_path(current_user.id, params[:gallery_id])%></h3>
+</div>

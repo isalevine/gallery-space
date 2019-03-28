@@ -1,12 +1,26 @@
 <h1>Make new settings</h1>
-<%=form_tag(user_gallery_settings_path(current_user.id, params[:gallery_id])) do%>
-<%=label_tag :theme_name%>
-<%=text_field_tag("setting[theme_name]")%>
-<%=label_tag :background_color%>
-<%=collection_select("setting", :background_color, @background_colors, :itself, :itself)%>
-<%=label_tag :font%>
-<%=collection_select("setting", :font, @font, :itself, :itself)%>
-<%=label_tag :audio%>
-<%=text_field_tag("setting[audio]")%>
-<%=submit_tag "submit"%>
-<%end%>
+
+<!-- background_color and font were moved from settings_controller
+  due to errors with render :new not re-instantiating the arrays
+  and causing the collection_select to evaluate them as nil...
+  possible to address by refactoring to redirect_to ?? -->
+<% @background_colors = ['black', 'white', 'red', 'blue', 'green'] %>
+<% @font = ['Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Courier', 'Verdana'] %>
+
+<% if flash[:message] %>
+  <%= flash[:message] %><br><br>
+<% end %>
+
+<%=form_tag(user_gallery_settings_path(current_user.id, params[:gallery_id])) do %>
+  <%= label_tag :theme_name %>
+  <%= text_field_tag("setting[theme_name]") %><br>
+  <%= label_tag :background_color %>
+  <%= collection_select("setting", :background_color, @background_colors, :itself, :itself) %><br>
+  <%= label_tag :font %>
+  <%= collection_select("setting", :font, @font, :itself, :itself) %><br>
+  <%= label_tag :audio %> - Please enter the section of a Youtube URL after "/watch?v="
+  <br>(EXAMPLE: https://www.youtube.com/watch?v=<i><b>VB6SIKl8Md0</b></i>)<br>
+  <%= text_field_tag("setting[audio]") %><br>
+  <%= hidden_field_tag "setting[gallery_id]", params[:gallery_id] %>
+  <%= submit_tag "submit" %>
+<% end %>

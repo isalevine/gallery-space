@@ -1,15 +1,29 @@
 
-<h1>See setting</h1>
+<h1>Show Custom Setting</h1>
+
 <h3>Theme name:</h3>
-<%=@setting.theme_name%>
+<%= @setting.theme_name %>
 <h3>Background Color:</h3>
-<%=@setting.background_color%>
+<%= @setting.background_color %>
 <h3>Font:</h3>
-<%=@setting.font%>
+<%= @setting.font %>
 <h3>Audio:</h3>
-<%=@setting.audio%><br>
+<%= @setting.audio %><br>
 
 <br>
-<%=link_to 'Choose Gallery Settings', edit_user_gallery_path(current_user.id)%><br>
+<h3><%= link_to 'Edit This Setting', edit_user_gallery_setting_path(current_user.id, params[:gallery_id], @setting) %></h3>
 
-<%=link_to 'View Published Gallery', view_published_gallery_path%>
+<br>
+<h3><%= link_to 'View Published Gallery', view_published_gallery_path(params[:gallery_id]) %></h3>
+
+<br>
+<h3><%= link_to 'Back to Custom Settings', user_gallery_settings_path(current_user.id, params[:gallery_id]) %></h3>
+
+<br>
+<h3><%= link_to 'Back to Edit Gallery', user_gallery_path(current_user.id, params[:gallery_id]) %></h3>
+
+<br>
+<h3><%= link_to 'Back to Your Profile', user_path(current_user.id) %></h3>
+
+<br>
+<h3><%= link_to 'Back to Main Page', root_path %></h3>

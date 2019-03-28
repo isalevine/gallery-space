@@ -26,7 +26,10 @@ class GalleriesController < ApplicationController
 
   def create
     @gallery = Gallery.new(gallery_params)
-    if @gallery.save
+    if @gallery.valid?
+      default_setting = Setting.create(gallery_id: @gallery.id, theme_name: "default", background_color: "white", font: "Times New Roman", audio: "")
+      @gallery.current_setting_id = default_setting.id
+      @gallery.save
       flash[:message] = "New gallery created successfully!"
       redirect_to user_gallery_path(@gallery.user, @gallery.id)
     else
@@ -44,7 +47,7 @@ class GalleriesController < ApplicationController
   def update
     @gallery = Gallery.find(params[:id])
     if @gallery.update(gallery_params)
-      flash[:message] = "Gallery successfully updated"
+      flash[:message] = "Gallery successfully updated!"
       redirect_to user_gallery_path(@gallery.user, @gallery.id)
     else
       flash[:error] = @gallery.errors.full_messages.to_sentence
@@ -72,7 +75,7 @@ class GalleriesController < ApplicationController
   # this method will be the SHOW FINAL GALLERY route,
   # separate from having the User view it for editing
     @gallery = Gallery.find(params[:id])
-    @gallery.current_setting_id = 1
+    # @gallery.current_setting_id = 1
     @settings = Setting.find(@gallery.current_setting_id)
 
   end
