@@ -1,5 +1,16 @@
 <h1>Create new image</h1>
 
+<div>
+  <% if @image.errors.any? %>
+    <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+    <ul>
+    <% @image.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
+
 <%= form_tag(user_gallery_images_path(current_user, params[:gallery_id]), :multipart => true) do %>
   <%= label_tag(:image)%>
   <%= file_field_tag("image[image]") %><br>
@@ -9,5 +20,6 @@
   <%= text_field_tag("image[artist]") %><br>
   <%= label_tag(:medium)%>
   <%= text_field_tag("image[medium]") %><br>
+  <%= hidden_field_tag "image[gallery_id]", params[:gallery_id].to_i %>
   <%= submit_tag %>
 <% end %>

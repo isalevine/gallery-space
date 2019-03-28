@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
-  skip_before_action :authenticate_user, only: [:index, :show, :search_for_galleries, :view_published_gallery]
+  skip_before_action :authenticate_user, only: [:index, :show, :search_for_galleries, :view_published_gallery, :view_image_details]
 
   def index
     @galleries = Gallery.all
@@ -77,8 +77,17 @@ class GalleriesController < ApplicationController
   # separate from having the User view it for editing
     @gallery = Gallery.find(params[:id])
     @settings = Setting.find(@gallery.current_setting_id)
-
+    @images = Image.where(gallery_id: @gallery.id).order(:id)
+    @gallery_owner = User.find(@gallery.user_id)
   end
+
+  def view_image_details
+    @gallery = Gallery.find(params[:id])
+    @settings = Setting.find(@gallery.current_setting_id)
+    @images = Image.where(gallery_id: @gallery.id).order(:id)
+    @gallery_owner = User.find(@gallery.user_id)
+  end
+
 
 
 

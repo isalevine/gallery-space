@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user
-    if !logged_in?
+    if !logged_in? || !User.exists?(session[:user_id])
       redirect_to root_path
     end
   end

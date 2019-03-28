@@ -1,11 +1,11 @@
 <h1>Edit image</h1>
 <%@image = Image.find(params[:id])%>
-<%=form_tag(user_gallery_images_path(current_user.id, params[:gallery_id])) do %>
+<%=form_tag(user_gallery_image_path(current_user.id, params[:gallery_id], @image), :method => :patch) do %>
 <%=label_tag :title%>
-<%=text_field_tag :title, @image.title%>
+<%=text_field_tag "image[title]", @image.title%>
 <%=label_tag :artist%>
-<%=text_field_tag :artist, @image.artist%>
+<%=text_field_tag "image[artist]", @image.artist%>
 <%=label_tag :medium%>
-<%=text_field_tag :medium, @image.medium%>
+<%=text_field_tag "image[medium]", @image.medium%>
 <%=submit_tag "submit"%>
 <%end%>

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # POST for '/view_gallery/' to enable search function?
   # also, need a GET route for the search-results page??
   get '/view_galleries/:id', to: 'galleries#view_published_gallery', as: "view_published_gallery"
+  get '/view_galleries/:id/image_details', to: 'galleries#view_image_details', as: "view_image_details"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

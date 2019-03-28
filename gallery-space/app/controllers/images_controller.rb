@@ -1,6 +1,8 @@
 class ImagesController < ApplicationController
+  skip_before_action :authenticate_user, only: [:index]
+
   def index
-    @images = Image.all
+    @images = Image.order(:id)
   end
 
   def show
@@ -16,7 +18,7 @@ class ImagesController < ApplicationController
     if @image.save
       redirect_to user_gallery_images_path
     else
-      # add flash error messages
+      flash[:error] = @image.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -27,12 +29,11 @@ class ImagesController < ApplicationController
 
   def update
     @image = Image.find(params[:id])
-    if @image.save
-      @image.update(image_params)
-      redirect_to image_path(@image)
+    if @image.update(image_params)
+      redirect_to user_gallery_images_path(current_user.id, params[:gallery_id])
     else
-      # add flash error messages
-      render :new
+      flash[:error] = @image.errors.full_messages.to_sentence
+      render :edit
   end
   end
 
@@ -45,6 +46,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:title, :artist, :medium, :image)
+    params.require(:image).permit!
   end
 end

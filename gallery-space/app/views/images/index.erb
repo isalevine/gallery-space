@@ -8,18 +8,17 @@
     Artist: <%= image.artist %><br>
     Medium: <%= image.medium %><br>
 
-
-    <% if params[:gallery_id].to_i == current_user.id %>
       <%= link_to "Edit Image Info", edit_user_gallery_image_path(current_user, params[:gallery_id], image) %>
-
-    <% end %>
 
   </div>
   <br><br>
 
-
-
 <% end %>
+
+<br>
+<div>
+  <p><%= link_to 'Add Images to Gallery', new_user_gallery_image_path(current_user.id, params[:gallery_id]) %></p>
+</div>
 
 <br><br>
 <div>

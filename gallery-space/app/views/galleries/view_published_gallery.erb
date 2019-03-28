@@ -8,4 +8,32 @@
 
   <h2>The gallery id is <%= @gallery.id %>.</h2>
 
+  <div>
+  <% if @images.any? %>
+    <% @images.each do |image| %>
+      <%= image_tag image.image.url %>
+      <br><br><br><br><br><br><br><br><br><br>
+    <% end %>
+  <% end %>
+  </div>
+
+  <br><br><br><br><br>
+  <div>
+    <p><%= link_to 'Image Details', view_image_details_path(@gallery.id) %></p>
+  </div>
+
+  <div>
+    <p><%= link_to "Back to User", user_path(@gallery_owner) %></p>
+  </div>
+
+  <div>
+    <p><%= link_to "Back to Galleries", search_for_galleries_path %></p>
+  </div>
+
+  <div>
+    <p><%= link_to "Back to Main Page", root_path %></p>
+  </div>
+
+
+
 </body>
