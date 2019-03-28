@@ -23,3 +23,8 @@
   <%= hidden_field_tag "image[gallery_id]", params[:gallery_id].to_i %>
   <%= submit_tag %>
 <% end %>
+
+<br><br>
+<div>
+  <%= link_to "Back to Edit Gallery", user_gallery_path(current_user, params[:gallery_id]) %>
+</div>
