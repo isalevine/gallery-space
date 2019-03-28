@@ -26,8 +26,10 @@
   <% friends_array = Friend.where(owner_user_id: @user.id) %>
   <% if friends_array.any? %>
     <% friends_array.each do |friend_join| %>
-      <% user_friend = User.find(friend_join.target_user_id) %>
-      <h4><%= link_to user_friend.user_name, user_path(user_friend) %></h4>
+      <% if User.exists?(friend_join.target_user_id) %>
+        <% user_friend = User.find(friend_join.target_user_id) %>
+        <h4><%= link_to user_friend.user_name, user_path(user_friend) %></h4>
+      <% end %>
     <% end %>
   <% else %>
     No friends yet!

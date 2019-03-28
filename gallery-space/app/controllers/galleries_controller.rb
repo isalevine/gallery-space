@@ -75,7 +75,11 @@ class GalleriesController < ApplicationController
   # this method will be the SHOW FINAL GALLERY route,
   # separate from having the User view it for editing
     @gallery = Gallery.find(params[:id])
-    @settings = Setting.find(@gallery.current_setting_id)
+    if Setting.exists?(id: @gallery.current_setting_id)
+      @settings = Setting.find(@gallery.current_setting_id)
+    else
+      @settings = Setting.create(gallery_id: @gallery.id, theme_name: "default", background_color: "white", font: "Times New Roman")
+    end
     @images = Image.where(gallery_id: @gallery.id).order(:id)
     @gallery_owner = User.find(@gallery.user_id)
   end

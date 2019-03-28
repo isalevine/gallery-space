@@ -28,7 +28,7 @@
   <% if friends_array.any? %>
     <% friends_array.each do |friend_join| %>
       <% user_friend = User.find(friend_join.target_user_id) %>
-      <h4><%= link_to user_friend.user_name, user_path(user_friend) %></h4>
+      <strong><%= link_to user_friend.user_name, user_path(user_friend) %></strong> - <%= link_to "delete from Friends", user_friend_path(current_user, user_friend), method: 'delete' %><br>
     <% end %>
   <% else %>
     No friends yet!

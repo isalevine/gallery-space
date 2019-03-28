@@ -8,7 +8,8 @@
     Artist: <%= image.artist %><br>
     Medium: <%= image.medium %><br>
 
-      <%= link_to "Edit Image Info", edit_user_gallery_image_path(current_user, params[:gallery_id], image) %>
+      <%= link_to "Edit Image Info", edit_user_gallery_image_path(current_user, params[:gallery_id], image) %><br>
+      <%= link_to "Delete Image", user_gallery_image_path(current_user, params[:gallery_id], image), method: 'delete' %>
 
   </div>
   <br><br>
@@ -18,6 +19,11 @@
 <br>
 <div>
   <p><%= link_to 'Add Images to Gallery', new_user_gallery_image_path(current_user.id, params[:gallery_id]) %></p>
+</div>
+
+<br>
+<div>
+  <h3><%= link_to 'View Published Gallery', view_published_gallery_path(params[:gallery_id]) %></h3>
 </div>
 
 <br><br>

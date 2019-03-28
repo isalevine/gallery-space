@@ -18,12 +18,20 @@
   </div>
 
   <br><br><br><br><br>
+
+  <% if @gallery_owner.id == session[:user_id] %>
+    <br>
+    <div>
+      <h3><%= link_to 'Back to Edit Gallery', user_gallery_path(current_user.id, @gallery.id)%></h3>
+    </div>
+  <% end %>
+
   <div>
     <p><%= link_to 'Image Details', view_image_details_path(@gallery.id) %></p>
   </div>
 
   <div>
-    <p><%= link_to "Back to User", user_path(@gallery_owner) %></p>
+    <p><%= link_to "Back to User Profile", user_path(@gallery_owner) %></p>
   </div>
 
   <div>

@@ -50,12 +50,11 @@ class UsersController < ApplicationController
 
   def destroy
     current_user.destroy
-    redirect to user_deleted_path
+    redirect_to user_deleted_path
   end
 
-  # def user_deleted
-  #   (see FriendlyCharacterGenerator code)
-  # end
+  def user_deleted
+  end
 
 
   def seed_create=(user_params)

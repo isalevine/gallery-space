@@ -13,3 +13,9 @@
   <%= text_field_tag "setting[audio]", @setting.audio %><br>
   <%= submit_tag %>
 <% end %>
+
+<br>
+<br>
+<div>
+  <p><%= link_to 'Delete Settings', user_gallery_setting_path(current_user.id, params[:gallery_id], @setting), method: 'delete' %></p>
+</div>

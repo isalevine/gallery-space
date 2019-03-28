@@ -20,6 +20,9 @@ class SettingsController < ApplicationController
     if !Setting.exists?(gallery_id: params[:gallery_id], theme_name: setting_params[:theme_name])
       @setting = Setting.new(setting_params)
       if @setting.save
+        @gallery = Gallery.find(params[:gallery_id])
+        @gallery.current_setting_id = @setting.id
+        @gallery.save
         redirect_to user_gallery_setting_path(current_user.id, params[:gallery_id], @setting)
       else
         flash[:message] = @setting.errors.full_messages.to_sentence
@@ -50,13 +53,26 @@ class SettingsController < ApplicationController
   def destroy
     @setting = Setting.find(params[:id])
     @setting.destroy
-    redirect to user_deleted_path
+    redirect_to user_gallery_settings_path(current_user.id, params[:gallery_id])
   end
 
+
+
+  around_action :catch_not_found
+
   private
+
 
   def setting_params
     params.require(:setting).permit!
   end
+
+  def catch_not_found
+    yield
+  rescue ActiveRecord::RecordNotFound
+    flash[:message] = "Setting not found - redirected to gallery page."
+    redirect_to user_gallery_path(current_user.id, params[:gallery_id])
+  end
+
 
 end
