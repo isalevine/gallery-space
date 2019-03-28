@@ -8,14 +8,25 @@
 
   <h2>The gallery id is <%= @gallery.id %>.</h2>
 
-  <div>
-  <% if @images.any? %>
-    <% @images.each do |image| %>
-      <%= image_tag image.image.url %>
-      <br><br><br><br><br><br><br><br><br><br>
-    <% end %>
-  <% end %>
+
+      <br><br><br><br><br>
+
+
+<!-- refactor image-displays using Bootstrap! -->
+<% if @images.any? %>
+  <% @images.each do |image| %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-10 offset-1">
+        <div class="text-center">
+          <%= image_tag image.image.url, class: "img-fluid" %>
+        </div>
+      </div>
+    </div>
   </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <% end %>
+<% end %>
 
   <br><br><br><br><br>
 
