@@ -24,6 +24,11 @@ class FriendsController < ApplicationController
       flash[:message] = "This User is already your Friend!"
       redirect_to user_path(User.find(params[:format]))
 
+    # prevent logged-in User from Friend-ing themself!!
+    elsif session[:user_id] == params[:format]
+      flash[:message] = "You cannot add yourself to your Friends!"
+      redirect_to user_path(User.find(params[:format])) 
+
     # if no Friend match currently exists, create new one
     else
       @friend = Friend.new(owner_user_id: session[:user_id], target_user_id: params[:format])

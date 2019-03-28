@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user, except: [:main_logged_in, :destroy_session_logout]
 
   def main
-    if session[:user_id]
+    if session[:user_id] && User.exists?(session[:user_id])
       redirect_to logged_in_path
     end
   end
@@ -20,10 +20,6 @@ class PagesController < ApplicationController
       redirect_to root_path
     end
   end
-
-  # UNNECESSARY? - main page IS the "new login" view!...???
-  # def new_session_login
-  # end
 
   def create_session_login
     @user = User.find_by(user_name: params[:user_name])

@@ -7,7 +7,11 @@ class UsersController < ApplicationController
 
   # visitor show page
   def show
-    @user = User.find(params[:id])
+    if params[:id] == session[:user_id].to_s
+      render :show_your_profile
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   # show your own profile

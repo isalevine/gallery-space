@@ -4,9 +4,9 @@
   <%= label_tag :theme_name %>
   <%= text_field_tag "setting[theme_name]", @setting.theme_name %><br>
   <%= label_tag :background_color %>
-  <%= text_field_tag "setting[background_color]", @setting.background_color %><br>
+  <%= collection_select("setting", :background_color, @background_colors, :itself, :itself) %><br>
   <%= label_tag :font %>
-  <%= text_field_tag "setting[font]", @setting.font %><br>
+  <%= collection_select("setting", :font, @font, :itself, :itself) %><br>
   <br>
   <%= label_tag :audio %> - Please enter the section of a Youtube URL after "/watch?v="
   <br>(EXAMPLE: https://www.youtube.com/watch?v=<i><b>VB6SIKl8Md0</b></i>)<br>

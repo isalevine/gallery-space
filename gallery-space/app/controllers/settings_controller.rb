@@ -1,6 +1,6 @@
 class SettingsController < ApplicationController
   def index
-    @settings = Setting.all
+    @settings = Setting.where(gallery_id: params[:gallery_id])
   end
 
   def show

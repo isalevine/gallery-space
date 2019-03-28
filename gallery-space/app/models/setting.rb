@@ -1,5 +1,5 @@
 class Setting < ApplicationRecord
-  belongs_to :gallery, optional: true
+  belongs_to :gallery
 
   validates :theme_name, presence: true
   validates :background_color, presence: true

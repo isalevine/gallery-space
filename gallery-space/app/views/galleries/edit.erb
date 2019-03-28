@@ -23,7 +23,7 @@
   <%= text_field_tag("gallery[blurb]", @gallery.blurb) %><br>
     <h3>Choose Custom Settings:/h3>
     <%= label_tag :theme_name %>
-    <%= collection_select("gallery", :current_setting_id, Setting.all, :id, :theme_name, {selected: Setting.find(@gallery.current_setting_id)}) %>
+    <%= collection_select("gallery", :current_setting_id, Setting.where(gallery_id: @gallery.id), :id, :theme_name, {selected: Setting.find(@gallery.current_setting_id)}) %>
   <%= submit_tag %>
   <% end %>
 </div>
