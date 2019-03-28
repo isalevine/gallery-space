@@ -1,5 +1,6 @@
 <div><h1>Edit Gallery</h1></div>
 
+<% @gallery = Gallery.find(params[:id])%>
 <div>
   <% if @gallery.errors.any? %>
     <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this gallery from being saved:</h2>
@@ -13,13 +14,13 @@
 
 
 <div>
-  <%= form_tag(user_galleries_path(current_user.id, @gallery.id)) do %>
+  <%= form_tag(user_gallery_path(current_user.id, @gallery), :method => :patch) do %>
   <%= label_tag(:name)%>
-  <%= text_field_tag("gallery[name]") %><br>
+  <%= text_field_tag("gallery[name]", @gallery.name) %><br>
   <%= label_tag(:theme)%>
-  <%= text_field_tag("gallery[theme]") %><br>
+  <%= text_field_tag("gallery[theme]",@gallery.theme) %><br>
   <%= label_tag(:blurb)%>
-  <%= text_field_tag("gallery[blurb]") %><br>
+  <%= text_field_tag("gallery[blurb]", @gallery.blurb) %><br>
   <%= submit_tag %>
   <% end %>
 </div>
@@ -28,7 +29,7 @@
 
 <br>
 <div>
-  <%= link_to 'Custom Settings', edit_setting_path%>
+  <%= link_to 'Custom Settings', edit_user_gallery_setting_path(current_user.id, @gallery.id)%>
 </div>
 
 <br>

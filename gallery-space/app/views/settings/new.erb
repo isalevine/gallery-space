@@ -1,12 +1,12 @@
 <h1>Make new settings</h1>
-<%=form_for(@setting) do |f|%>
-<%=f.label :theme_name%><br>
-<%=f.text_field :theme_name%><br>
-<%=f.label :background_color%><br>
-<%=f.collection_select :background_color, @background_colors, :itself, :itself%><br>
-<%=f.label :font%><br>
-<%=f.collection_select :font, @font, :itself, :itself%><br>
-<%=f.label :audio%><br>
-<%=f.text_field :audio%><br>
-<%=f.submit%>
+<%=form_tag(user_gallery_settings_path(current_user.id, params[:gallery_id])) do%>
+<%=label_tag :theme_name%>
+<%=text_field_tag("setting[theme_name]")%>
+<%=label_tag :background_color%>
+<%=collection_select("setting", :background_color, @background_colors, :itself, :itself)%>
+<%=label_tag :font%>
+<%=collection_select("setting", :font, @font, :itself, :itself)%>
+<%=label_tag :audio%>
+<%=text_field_tag("setting[audio]")%>
+<%=submit_tag "submit"%>
 <%end%>

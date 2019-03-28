@@ -16,9 +16,8 @@ class SettingsController < ApplicationController
 
   def create
     @setting = Setting.new(setting_params)
-    # byebug
     if @setting.save
-      redirect_to setting_path(@setting)
+      redirect_to user_gallery_setting_path(current_user.id, params[:gallery_id], @setting)
   else
     render :new
   end

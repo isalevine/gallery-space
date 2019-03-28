@@ -44,6 +44,7 @@ class GalleriesController < ApplicationController
   def update
     @gallery = Gallery.find(params[:id])
     if @gallery.update(gallery_params)
+      flash[:message] = "Gallery successfully updated"
       redirect_to user_gallery_path(@gallery.user, @gallery.id)
     else
       flash[:error] = @gallery.errors.full_messages.to_sentence

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :friends
     resources :galleries do
       resources :images
+      resources :settings
     end
   end
     get '/users/:id/profile', to: 'users#show_your_profile', as: 'show_your_profile'
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
     get '/galleries/:id/gallery_deleted', to: 'galleries#gallery_deleted', as: 'gallery_deleted'
 
 
-  resources :settings
+  # resources :settings
 
 
   get '/view_galleries/search', to: 'galleries#search_for_galleries', as: "search_for_galleries"

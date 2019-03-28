@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_060046) do
     t.string "theme_name"
     t.string "background_color"
     t.string "font"
-    t.string "youtube_URL_snippet"
+    t.string "audio"
     t.integer "gallery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
