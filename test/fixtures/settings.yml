@@ -4,10 +4,10 @@ one:
   theme_name: MyString
   background_color: MyString
   font: MyString
-  audio: MyString
+  youtube_URL_snippet: MyString
 
 two:
   theme_name: MyString
   background_color: MyString
   font: MyString
-  audio: MyString
+  youtube_URL_snippet: MyString

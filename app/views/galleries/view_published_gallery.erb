@@ -3,8 +3,8 @@
 
 
 
-<% if @settings.audio %>
-  <iframe width="0" height="0" src="https://www.youtube.com/embed/<%=@settings.audio%>?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<% if @settings.youtube_URL_snippet %>
+  <iframe width="0" height="0" src="https://www.youtube.com/embed/<%=@settings.youtube_URL_snippet%>?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <% end %>
 
 <br><br><br>

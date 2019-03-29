@@ -17,12 +17,12 @@ user2 = User.create(user_name: "ooga booga1", password: "big")
 
 
 gallery1 = Gallery.create(name: "Dr. Toboggan Gallery", theme: "TV show memes", user_id: user1.id)
-setting1 = Setting.create(gallery_id: gallery1.id, theme_name: "default", background_color: "white", font: "Times New Roman", audio: "sS3oRq7a93I")
+setting1 = Setting.create(gallery_id: gallery1.id, theme_name: "default", background_color: "white", font: "Times New Roman", youtube_URL_snippet: "sS3oRq7a93I")
 gallery1.current_setting_id = setting1.id
 gallery1.save
 
 
 gallery2 = Gallery.create(name: "Ooga's Bobby Hill Jamboree!", theme: "memes, gifs, koth", user_id: user2.id)
-setting2 = Setting.create(gallery_id: gallery2.id, theme_name: "default", background_color: "white", font: "Times New Roman", audio: "Y0mM-J6wisU")
+setting2 = Setting.create(gallery_id: gallery2.id, theme_name: "default", background_color: "white", font: "Times New Roman", youtube_URL_snippet: "Y0mM-J6wisU")
 gallery2.current_setting_id = setting2.id
 gallery2.save
