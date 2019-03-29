@@ -10,10 +10,6 @@ class SettingsController < ApplicationController
 
   def new
     @setting = Setting.new
-    # instance variables below were moved to the Setting-New
-    # view--see comment in that file for further explanation
-    # @background_colors = ['black', 'white', 'red', 'blue', 'green']
-    # @font = ['Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Courier', 'Verdana']
   end
 
   def create
@@ -36,7 +32,7 @@ class SettingsController < ApplicationController
 
   def edit
     @setting = Setting.find(params[:id])
-    @background_colors = ['black', 'white', 'red', 'blue', 'green']
+    @background_colors = ['black', 'white', 'red', 'blue', 'green', 'pink', 'gray', 'orange']
     @font = ['Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Courier', 'Verdana']
   end
 

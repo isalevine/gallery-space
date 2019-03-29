@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root 'pages#main'
 
   post '/login', to: 'pages#create_session_login'
-  get '/logged_in/', to: 'pages#main_logged_in'
   post '/logout', to: 'pages#destroy_session_logout'
 
 
@@ -18,7 +17,7 @@ Rails.application.routes.draw do
 
 
   get '/view_galleries/search', to: 'galleries#search_for_galleries', as: "search_for_galleries"
-  # POST for '/view_gallery/' to enable search function?
+  post '/view_galleries/search', to: "galleries#search_results", as: "search_results"
   # also, need a GET route for the search-results page??
   get '/view_galleries/:id', to: 'galleries#view_published_gallery', as: "view_published_gallery"
   get '/view_galleries/:id/image_details', to: 'galleries#view_image_details', as: "view_image_details"

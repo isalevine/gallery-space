@@ -1,4 +1,6 @@
-<h1>Image Details:</h1>
+<br><br><br>
+
+<h2>Image Details:</h2>
 
 <% @images.each do |image| %>
 
@@ -14,5 +16,13 @@
 
 <br><br>
 <div>
-  <p><%= link_to "Back to Gallery", view_published_gallery_path(@gallery) %></p>
+  <h4><%= link_to "Back to Gallery", view_published_gallery_path(@gallery) %></h4>
 </div>
+
+<br><br><br>
+<div>
+  <h4><%= link_to 'Back to Main Page', root_path %></h4>
+</div>
+
+
+<br><br><br>

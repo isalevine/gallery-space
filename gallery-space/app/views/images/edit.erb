@@ -1,4 +1,6 @@
-<h1>Edit image</h1>
+<br><br><br>
+
+<h2>Edit image</h2>
 <%@image = Image.find(params[:id])%>
 <%=form_tag(user_gallery_image_path(current_user.id, params[:gallery_id], @image), :method => :patch) do %>
 <%=label_tag :title%>

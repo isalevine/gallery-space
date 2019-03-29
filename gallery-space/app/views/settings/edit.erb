@@ -1,4 +1,6 @@
-<h1>Change settings</h1>
+<br><br><br>
+
+<h2>Change settings</h2>
 
 <%= form_tag(user_gallery_setting_path(current_user.id, params[:gallery_id], @setting), :method => :patch) do %>
   <%= label_tag :theme_name %>
@@ -6,16 +8,22 @@
   <%= label_tag :background_color %>
   <%= collection_select("setting", :background_color, @background_colors, :itself, :itself) %><br>
   <%= label_tag :font %>
-  <%= collection_select("setting", :font, @font, :itself, :itself) %><br>
-  <br>
+  <%= collection_select("setting", :font, @font, :itself, :itself) %><br><br><br>
   <%= label_tag :audio %> - Please enter the section of a Youtube URL after "/watch?v="
   <br>(EXAMPLE: https://www.youtube.com/watch?v=<i><b>VB6SIKl8Md0</b></i>)<br>
-  <%= text_field_tag "setting[audio]", @setting.audio %><br>
+  <%= text_field_tag "setting[audio]", @setting.audio %><br><br><br>
   <%= submit_tag %>
 <% end %>
 
-<br>
-<br>
+<br><br>
 <div>
-  <p><%= link_to 'Delete Settings', user_gallery_setting_path(current_user.id, params[:gallery_id], @setting), method: 'delete' %></p>
+  <h4><%= link_to 'Delete Settings', user_gallery_setting_path(current_user.id, params[:gallery_id], @setting), method: 'delete' %></h4>
 </div>
+
+<br><br>
+<div>
+  <h4><%= link_to 'Back to Gallery', user_gallery_path(current_user.id, params[:gallery_id])%></h4>
+</div>
+
+
+<br><br><br>

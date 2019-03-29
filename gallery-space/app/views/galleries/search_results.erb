@@ -1,0 +1,17 @@
+<br><br><br>
+
+<h2>Search results:</h2>
+
+<% if @galleries.any? %>
+  <% @galleries.each do |gallery| %>
+    <%= link_to gallery.name, view_published_gallery_path(gallery.id) %>
+  <% end %>
+<% end %>
+
+<br><br><br>
+<div>
+  <h4><%= link_to 'Back to Main Page', root_path %></h4>
+</div>
+
+
+<br><br><br>

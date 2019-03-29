@@ -1,8 +1,4 @@
-<div><h1>User Show (Visitor / Other User)</h1></div>
-
-<% if flash[:message] %>
-  <%= flash[:message] %>
-<% end %>
+<br><br><br>
 
 <div>
   <h2><%= @user.user_name %></h2>
@@ -16,7 +12,7 @@
 <div>
   <h3>Galleries by <%= @user.user_name %></h3>
   <% @user.galleries.each do |gallery| %>
-    <h4><%= link_to gallery.name, view_published_gallery_path(gallery.id) %></h4>
+    <%= link_to gallery.name, view_published_gallery_path(gallery.id) %><br><br>
   <% end %>
 </div>
 
@@ -28,7 +24,7 @@
     <% friends_array.each do |friend_join| %>
       <% if User.exists?(friend_join.target_user_id) %>
         <% user_friend = User.find(friend_join.target_user_id) %>
-        <h4><%= link_to user_friend.user_name, user_path(user_friend) %></h4>
+          <%= link_to user_friend.user_name, user_path(user_friend) %><br><br>
       <% end %>
     <% end %>
   <% else %>
@@ -41,17 +37,17 @@
 <% if logged_in? %>
   <br>
   <div>
-    <h3><%= link_to 'Add This User to Your Friends', new_user_friend_path(current_user, params[:id] = @user.id) %></h3>
+    <h5><%= link_to 'Add This User to Your Friends', new_user_friend_path(current_user, params[:id] = @user.id) %></h5>
   </div>
 <% end %>
 
-<br>
+<br><br><br>
 <div>
-  <h3><%= link_to 'Back to Browse Users', users_path %></h3>
+  <h4><%= link_to 'Back to Main Page', root_path %></h4>
 </div>
 
+<br><br><br>
 
-<br>
-<div>
-  <h3><%= link_to 'Back to Main Page', root_path %></h3>
-</div>
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>

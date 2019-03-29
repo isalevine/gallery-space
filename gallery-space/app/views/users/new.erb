@@ -1,4 +1,6 @@
-<div><h1>New User</h1></div>
+<br><br><br>
+
+<div><h2>New User</h2></div>
 
 <div>
   <% if @user.errors.any? %>
@@ -18,7 +20,7 @@
     <%= f.label :password %>
     <%= f.password_field :password %><br><br>
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br><br>
+    <%= f.password_field :password_confirmation %><br><br><br>
     <h4>Optional Data:</h4>
     <%= f.label :real_name %>
     <%= f.text_field :real_name %><br><br>
@@ -27,17 +29,7 @@
     <%= f.label :age %>
     <%= f.number_field :age %><br><br>
     <%= f.label :blurb %>
-    <%= f.text_area :blurb %><br><br>
+    <%= f.text_area :blurb %><br><br><br>
     <%= f.submit %>
   <% end  %>
-</div>
-
-<br>
-<div>
-  <h3><%= link_to 'Back to Main Page', root_path %></h3>
-</div>
-
-<br>
-<div>
-  <h3><%= link_to 'Back to User Index', users_path %></h3>
 </div>

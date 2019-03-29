@@ -1,31 +1,32 @@
 
 <body>
 
-  <div>
-    <h1>Browse Users</h1>
-  </div>
+  <br><br><br>
 
-  <% if User.exists?(session[:user_id])%>
-    <h3>You are logged in as <%= current_user.user_name %>.</h3>
-  <% end %>
+  <div>
+    <h2>Browse Users</h2>
+    You can add them to your Friends!
+  </div>
+  <br><br>
 
   <br>
-  <h2>All Users:</h2>
+  <h3>All Users:</h3>
+  <font size=4>
+    <div>
+      <% @users.each do |user| %>
+        <%= link_to user.user_name, show_your_profile_path(user) %><br><br>
+      <% end %>
+    </div>
+  </font>
+
+  <br><br><br>
   <div>
-    <% @users.each do |user| %>
-      <h2><%= link_to user.user_name, show_your_profile_path(user) %></h2>
-    <% end %>
+    <h4><%= link_to 'Create New User', new_user_path %></h4>
   </div>
 
-  <br><br>
+  <br><br><br>
   <div>
-    <h2><%= link_to 'Create New User', new_user_path %></h2>
-  </div>
-
-
-  <br><br>
-  <div>
-    <h2><%= link_to 'Back to Main Page', root_path %></h2>
+    <h4><%= link_to 'Back to Main Page', root_path %></h4>
   </div>
 
 </body>

@@ -1,10 +1,4 @@
-
-
-<div><h1>Gallery Show</h1></div>
-
-<% if flash[:message] %>
-  <%= flash[:message] %>
-<% end %>
+<br><br><br>
 
 <div>
   <h2><%= @gallery.name %></h2>
@@ -13,20 +7,24 @@
   Blurb: <%= @gallery.blurb %><br>
 </div>
 
-<!--
-this will be where the images for the gallery display.
-consider moving the "about this gallery" info above to
-a separate page so that the images/gallery are isolated??
--->
-
-<br>
+<br><br>
 <div>
-  <h3><%= link_to 'View Published Gallery', view_published_gallery_path(@gallery) %></h3>
+  <h4><%= link_to 'View Published Gallery', view_published_gallery_path(@gallery) %></h4>
 </div>
 
 <br>
 <div>
-  <p><%= link_to 'View/Edit Images in Gallery', user_gallery_images_path(current_user.id, @gallery.id) %></p>
+  <p><%= link_to 'Edit Gallery Info & Change Custom Settings', edit_user_gallery_path(@gallery) %></p>
+</div>
+
+<br>
+<div>
+  <p><%= link_to 'Create New Custom Settings', new_user_gallery_setting_path(current_user.id, params[:id]) %></p>
+</div>
+
+<br>
+<div>
+  <p><%= link_to 'Edit Custom Settings', user_gallery_settings_path(current_user.id, params[:id]) %></p>
 </div>
 
 <br>
@@ -36,20 +34,28 @@ a separate page so that the images/gallery are isolated??
 
 <br>
 <div>
-  <p><%= link_to 'View/Edit Custom Settings', user_gallery_settings_path(current_user.id, params[:id]) %></p>
+  <p><%= link_to 'Edit Images in Gallery', user_gallery_images_path(current_user.id, @gallery.id) %></p>
 </div>
+
+
+
+
 
 <br>
 <div>
-  <p><%= link_to 'Create Custom Settings', new_user_gallery_setting_path(current_user.id, params[:id]) %></p>
+  <p><%= link_to 'Back to User Profile', user_path(@gallery.user) %></p>
 </div>
 
-<br>
+<br><br><br>
 <div>
-  <p><%= link_to 'Edit Gallery Info', edit_user_gallery_path(@gallery) %></p>
+  <h4><%= link_to 'Back to Main Page', root_path %></h4>
 </div>
 
-<br>
-<div>
-  <p><%= link_to 'Back to User Show', user_path(@gallery.user) %></p>
-</div>
+
+<br><br><br>
+
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>
+
+<br><br><br>

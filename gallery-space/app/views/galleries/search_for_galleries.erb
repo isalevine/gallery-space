@@ -1,25 +1,40 @@
-<h1>Use this page to search for published galleries!</h1>
+<br><br><br>
 
-<br>
 <div>
   <h2>Search for galleries:</h2>
-  <p>Search by user:</p> <!-- collection_select -->
-  <p>Search by theme:</p> <!-- collection_select -->
-  <p>Search by medium:</p> <!-- collection_select -->
-  <p>Search by gallery name:</p> <!-- collection_select -->
+  Search by user:
+    <%= form_tag(search_results_path) do %>
+      <%= collection_select("search", :user_name, User.order("LOWER(users.user_name) ASC").references(:users), :user_name, :user_name) %>
+      <%= submit_tag "Submit" %>
+    <% end %>
+    <br>
+  Search by theme:
+  <%= form_tag(search_results_path) do %>
+    <%= collection_select("search", :theme, Gallery.order("LOWER(galleries.theme) ASC").references(:galleries), :theme, :theme) %>
+    <%= submit_tag "Submit "%>
+  <% end %>
+  <br>
+  Search by gallery name:
+  <%= form_tag(search_results_path) do %>
+    <%= collection_select("search", :name, Gallery.order("LOWER(galleries.name) ASC").references(:galleries), :name, :name) %>
+    <%= submit_tag "Submit "%>
+  <% end %>
+  <br>
 </div>
 
 <br>
 <div>
   <!-- need to add a Published field to Gallery model?? -->
-  <h2>All published galleries:</h2>
+  <h3>All published galleries:</h3>
   <% Gallery.all.each do |gallery| %>
-    <p><%= link_to "#{gallery.name} (created by #{gallery.user.user_name})", view_published_gallery_path(gallery) %></p>
+    <p><%= link_to "#{gallery.name}", view_published_gallery_path(gallery) %> - created by <%= link_to "#{gallery.user.user_name}", user_path(gallery.user.user_name) %></p>
   <% end %>
 </div>
 
-
-<br><br>
+<br><br><br>
 <div>
-  <h2><%= link_to 'Back to Main Page', root_path %></h2>
+  <h4><%= link_to 'Back to Main Page', root_path %></h4>
 </div>
+
+
+<br><br><br>

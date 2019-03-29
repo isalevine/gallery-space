@@ -30,7 +30,7 @@ pre-set options PLUS the ability to make a new one??
     <%= label_tag(:theme)%>
     <%= text_field_tag("gallery[theme]") %><br>
     <%= label_tag(:blurb)%>
-    <%= text_field_tag("gallery[blurb]") %><br>
+    <%= text_area_tag("gallery[blurb]") %><br>
     <%= hidden_field_tag 'gallery[user_id]', current_user.id %>
     <%= submit_tag %>
   <% end %>
@@ -47,9 +47,4 @@ pre-set options PLUS the ability to make a new one??
 </div>
 
 
-<!--
-<br>
-<div>
-  <p>[SQUID] link_to 'Gallery Index', user_galleries_path %></p>
-</div>
--->
+<br><br><br>

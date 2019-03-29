@@ -11,13 +11,100 @@
 
   <body>
     <nav class="navbar fixed-top navbar-dark bg-primary">
-      <a class="navbar-brand" href="/">GallerySpace</a>
+
+      <div class="row">
+        <div class="col">
+            <a class="navbar-brand" href="/">
+              <h1>GallerySpace</h1>
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-1 offset-10">
+            <a class="navbar-brand" href="<%= search_for_galleries_path %>">
+              View Galleries
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-1 offset-6">
+            <a class="navbar-brand" href="<%= users_path %>">
+              Browse Users
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col", align="right">
+            <font color=white size=4>
+              <% if !logged_in? %>
+                <%= form_tag(login_path) do %>
+                  <%= label_tag :user_name %>
+                  <%= text_field_tag :user_name %><br>
+                  <%= label_tag :password %>
+                  <%= password_field_tag :password %><br>
+                  <%= submit_tag "Login" %>
+                <% end %>
+              <% else %>
+                <a href="/users/<%= current_user.id %>" class="navbar-brand">
+                You are logged in as <%= current_user.user_name %>.<br>
+                Click here to go to your profile.<br>
+                </a>
+                <%= form_tag(logout_path) do %>
+                  <%= submit_tag "Logout" %>
+                <% end %>
+              <% end %>
+
+            </font>
+          </div>
+        </div>
+
     </nav>
     <br><br><br>
 
 
     <nav class="navbar {min-height: 50px} fixed-bottom navbar-dark botbar">
-      <a class="navbar-brand" href="/">Links around page</a>
+
+
+
+      <div class="row">
+        <div class="col">
+          <font color=white>
+            Created by Isa Levine and Chris Cable, in tribute to a simpler era of the Internet.
+          </font>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <font color=white>
+            Rest in peace, MySpace & GeoCities...
+          </font>
+        </div>
+      </div>
+
     </nav>
 
 

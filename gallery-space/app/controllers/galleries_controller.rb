@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
-  skip_before_action :authenticate_user, only: [:index, :show, :search_for_galleries, :view_published_gallery, :view_image_details]
+  skip_before_action :authenticate_user, only: [:index, :show, :search_for_galleries, :search_results, :view_published_gallery, :view_image_details]
 
   def index
     @galleries = Gallery.all
@@ -65,11 +65,19 @@ class GalleriesController < ApplicationController
   def gallery_deleted
   end
 
-
   def search_for_galleries
-  # this method will route to the Gallery Search page
   end
 
+  def search_results
+    if params[:search][:user_name]
+      @user = User.find_by(user_name: params[:search][:user_name])
+      @galleries = Gallery.where(user_id: @user.id)
+    elsif params[:search][:theme]
+      @galleries = Gallery.where(theme: params[:search][:theme])
+    elsif params[:search][:name]
+      @galleries = Gallery.where(name: params[:search][:name])
+    end
+  end
 
   def view_published_gallery
   # this method will be the SHOW FINAL GALLERY route,

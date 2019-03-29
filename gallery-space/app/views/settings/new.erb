@@ -1,10 +1,12 @@
-<h1>Make new settings</h1>
+<br><br><br>
+
+<h2>Make new settings</h2>
 
 <!-- background_color and font were moved from settings_controller
   due to errors with render :new not re-instantiating the arrays
   and causing the collection_select to evaluate them as nil...
   possible to address by refactoring to redirect_to ?? -->
-<% @background_colors = ['black', 'white', 'red', 'blue', 'green'] %>
+<% @background_colors = ['black', 'white', 'red', 'blue', 'green', 'pink', 'gray', 'orange'] %>
 <% @font = ['Arial', 'Helvetica', 'Times New Roman', 'Courier New', 'Courier', 'Verdana'] %>
 
 <% if flash[:message] %>
@@ -17,10 +19,18 @@
   <%= label_tag :background_color %>
   <%= collection_select("setting", :background_color, @background_colors, :itself, :itself) %><br>
   <%= label_tag :font %>
-  <%= collection_select("setting", :font, @font, :itself, :itself) %><br>
+  <%= collection_select("setting", :font, @font, :itself, :itself) %><br><br><br>
   <%= label_tag :audio %> - Please enter the section of a Youtube URL after "/watch?v="
   <br>(EXAMPLE: https://www.youtube.com/watch?v=<i><b>VB6SIKl8Md0</b></i>)<br>
-  <%= text_field_tag("setting[audio]") %><br>
+  <%= text_field_tag("setting[audio]") %><br><br><br>
   <%= hidden_field_tag "setting[gallery_id]", params[:gallery_id] %>
   <%= submit_tag "submit" %>
 <% end %>
+
+<br><br>
+<div>
+  <h4><%= link_to 'Back to Gallery', user_gallery_path(current_user.id, params[:gallery_id])%></h4>
+</div>
+
+
+<br><br><br>

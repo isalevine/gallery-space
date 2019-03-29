@@ -1,34 +1,32 @@
+<br><br><br>
+
+<h2>Welcome to GallerySpace!</h2>
+<p>This is a place for you to curate images in a digital gallery space.</p>
+<br><br>
+
+<h3>From here, you can...</h3>
+<br>
+<font size=5>
+  <div>
+  <%= link_to 'View Galleries', search_for_galleries_path %>
+  </div>
+
+  <br>
+  <div>
+    <%= link_to 'Browse Users', users_path %>
+  </div>
+
+  <br>
+  <div>
+    <%= link_to "Create New User", new_user_path %>
+  </div>
+</font>
 
 
-<h1>Welcome to the GallerySpace main page!</h1>
+<br><br><br>
 
 <% if flash[:message] %>
   <%= flash[:message] %>
 <% end %>
 
-<!-- login -->
-<br><br>
-<div>
-  <%= form_tag(login_path) do %>
-    <%= label_tag :user_name %>
-    <%= text_field_tag :user_name %><br>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %><br>
-    <%= submit_tag "Login" %>
-  <% end %>
-</div>
-
-<br><br>
-<div>
-  <h2><%= link_to 'Search & View Galleries', search_for_galleries_path %></h2>
-</div>
-
-<br><br>
-<div>
-  <h2><%= link_to "Create New User", new_user_path %></h2>
-</div>
-
-<br><br>
-<div>
-  <h2><%= link_to 'Browse Users', users_path %></h2>
-</div>
+<br><br><br>

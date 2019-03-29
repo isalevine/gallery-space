@@ -1,14 +1,16 @@
-<h1>Select a Custom Setting to edit:</h1>
+<br><br><br>
+
+<h2>Select a Custom Setting to edit:</h2>
 <%@settings.each do |setting|%>
 <%= link_to setting.theme_name, edit_user_gallery_setting_path(current_user.id, params[:gallery_id], setting.id) %><br>
 <%end%>
 
-<br>
+<br><br>
 <div>
-  <h3><%= link_to 'Create new Custom Settings', new_user_gallery_setting_path(current_user.id, params[:gallery_id])%></h3>
+  <h4><%= link_to 'Create New Custom Settings', new_user_gallery_setting_path(current_user.id, params[:gallery_id])%></h4>
 </div>
 
-<br>
+<br><br>
 <div>
-  <h3><%= link_to 'Back to Gallery', user_gallery_path(current_user.id, params[:gallery_id])%></h3>
+  <h4><%= link_to 'Back to Edit Gallery', edit_user_gallery_path(current_user.id, params[:gallery_id])%></h4>
 </div>

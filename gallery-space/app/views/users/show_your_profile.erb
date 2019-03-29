@@ -1,8 +1,4 @@
-<div><h1>User Show (Self - you are logged in)</h1></div>
-
-<% if flash[:message] %>
-  <%= flash[:message] %>
-<% end %>
+<br><br><br>
 
 <div>
   <h2><%= current_user.user_name %></h2>
@@ -14,14 +10,19 @@
 <div>
 
 <div>
-  <h3>Edit your Galleries:</h3>
-  <% current_user.galleries.each do |gallery| %>
-    <h4><%= link_to gallery.name, user_gallery_path(current_user.id, gallery) %> - view <%= link_to 'published version', view_published_gallery_path(gallery.id) %></h4>
-  <% end %>
-    <p><%= link_to 'Create New Gallery', new_user_gallery_path(user_id: current_user.id) %></p>
+  <h5><%= link_to 'Edit Your Profile', edit_user_path(current_user) %></h5>
 </div>
 
-<br>
+<br><br>
+<div>
+  <h3>Edit your Galleries:</h3>
+  <% current_user.galleries.each do |gallery| %>
+    <%= link_to gallery.name, user_gallery_path(current_user.id, gallery) %> - view <%= link_to 'published version', view_published_gallery_path(gallery.id) %><br><br>
+  <% end %>
+    <h5><%= link_to 'Create New Gallery', new_user_gallery_path(user_id: current_user.id) %></h5>
+</div>
+
+<br><br>
 <div>
   <h3>Your Friends:</h3>
   <% friends_array = Friend.where(owner_user_id: current_user.id) %>
@@ -35,13 +36,13 @@
   <% end %>
 </div>
 
-<br>
-<br>
+<br><br><br>
 <div>
-  <p><%= link_to 'Edit User Info', edit_user_path(current_user) %></p>
+  <h4><%= link_to 'Back to Main Page', root_path %></h4>
 </div>
 
-<br>
-<div>
-  <h3><%= link_to 'Back to Browse Users', users_path %></h3>
-</div>
+<br><br><br>
+
+<% if flash[:message] %>
+  <%= flash[:message] %>
+<% end %>

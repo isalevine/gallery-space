@@ -1,4 +1,6 @@
-<h1>See all images in this gallery:</h1>
+<br><br><br>
+
+<h2>All images in this gallery:</h2>
 
 <% @images.each do |image| %>
 
@@ -21,12 +23,14 @@
   <p><%= link_to 'Add Images to Gallery', new_user_gallery_image_path(current_user.id, params[:gallery_id]) %></p>
 </div>
 
-<br>
+<br><br>
 <div>
-  <h3><%= link_to 'View Published Gallery', view_published_gallery_path(params[:gallery_id]) %></h3>
+  <h4><%= link_to 'View Published Gallery', view_published_gallery_path(params[:gallery_id]) %></h4>
 </div>
 
 <br><br>
 <div>
-  <%= link_to "Back to Edit Gallery", user_gallery_path(current_user, params[:gallery_id]) %>
+  <h4><%= link_to 'Back to Main Page', root_path %></h4>
 </div>
+
+<br><br><br>
