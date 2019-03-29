@@ -1,4 +1,6 @@
-<div><h1>New Gallery</h1></div>
+<br><br><br>
+
+<div><h2>New Gallery</h2></div>
 
 <div>
   <% if @gallery.errors.any? %>
@@ -32,18 +34,18 @@ pre-set options PLUS the ability to make a new one??
     <%= label_tag(:blurb)%>
     <%= text_area_tag("gallery[blurb]") %><br>
     <%= hidden_field_tag 'gallery[user_id]', current_user.id %>
-    <%= submit_tag %>
+    <%= submit_tag "Create New Gallery" %>
   <% end %>
 </div>
 
-<br>
+<br><br>
 <div>
-  <p><%= link_to 'Back to your Profile', show_your_profile_path(current_user) %></p>
+  <h4><%= link_to 'Back to your Profile', show_your_profile_path(current_user) %></h4>
 </div>
 
 <br>
 <div>
-  <p><%= link_to 'Back to Main Page', root_path %></p>
+  <h4><%= link_to 'Back to Main Page', root_path %></h4>
 </div>
 
 
