@@ -1,5 +1,8 @@
 <body style="background-color:<%= @settings.background_color %>; font-family:<%= @settings.font %>">
 
+
+
+
 <% if @settings.audio %>
   <iframe width="0" height="0" src="https://www.youtube.com/embed/<%=@settings.audio%>?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <% end %>

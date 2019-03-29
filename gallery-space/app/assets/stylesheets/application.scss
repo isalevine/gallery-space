@@ -19,3 +19,16 @@ body {
   font-size: 16px;
   margin: 12px
 }
+
+.navbar-nav > li > a, navbar-brand {padding-top:5px !important; padding-bottom:5px !important;}
+.navbar {min-height:150px}
+.botbar {min-height: 50px; background-color: pink}
+
+// footer {
+//   display: block;
+//   background-color: pink;
+//   height: 150px;
+//   padding-top: 75px;
+//   padding-left: 25px;
+//   .extendfull, .extendleft, .extendright {width: 100%}
+// }
