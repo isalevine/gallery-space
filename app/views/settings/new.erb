@@ -20,9 +20,9 @@
   <%= collection_select("setting", :background_color, @background_colors, :itself, :itself) %><br>
   <%= label_tag :font %>
   <%= collection_select("setting", :font, @font, :itself, :itself) %><br><br><br>
-  <%= label_tag :youtube_URL_snippet %> - Please enter the section of a Youtube URL after "/watch?v="
+  <%= label_tag :audio %> - Please enter the section of a Youtube URL after "/watch?v="
   <br>(EXAMPLE: https://www.youtube.com/watch?v=<i><b>VB6SIKl8Md0</b></i>)<br>
-  <%= text_field_tag("setting[youtube_URL_snippet]") %><br><br><br>
+  <%= text_field_tag("setting[audio]") %><br><br><br>
   <%= hidden_field_tag "setting[gallery_id]", params[:gallery_id] %>
   <%= submit_tag "submit" %>
 <% end %>

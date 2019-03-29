@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def create_session_login
     @user = User.find_by(user_name: params[:user_name])
+    byebug
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to root_path
