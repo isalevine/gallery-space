@@ -27,7 +27,7 @@
   <!-- need to add a Published field to Gallery model?? -->
   <h3>All published galleries:</h3>
   <% Gallery.all.each do |gallery| %>
-    <p><%= link_to "#{gallery.name}", view_published_gallery_path(gallery) %> - created by <%= link_to "#{gallery.user.user_name}", user_path(gallery.user.user_name) %></p>
+    <p><%= link_to "#{gallery.name}", view_published_gallery_path(gallery) %> - created by <%= link_to "#{gallery.user.user_name}", user_path(gallery.user.id) %></p>
   <% end %>
 </div>
 
