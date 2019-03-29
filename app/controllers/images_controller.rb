@@ -2,7 +2,6 @@ class ImagesController < ApplicationController
   skip_before_action :authenticate_user, only: [:index]
 
   def index
-    byebug
     @images = Image.where(gallery_id: params[:gallery_id])
   end
 
